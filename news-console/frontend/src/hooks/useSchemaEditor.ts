@@ -1,12 +1,12 @@
 import { useEffect, useMemo, useState } from 'react';
-import { findAutoDateDimensionName, isAutoDateDimensionName } from '../../../lib/olap/dateDimension';
+import { findAutoDateDimensionName, isAutoDateDimensionName } from '../lib/olap/dateDimension';
 import {
   cloneDimensionsToEditState,
   cloneSchemasToEditState,
-} from '../../../lib/olap/schemaPayload';
-import type { FactInfo } from '../../../types/news';
-import type { EditedDimension, EditedSchema } from '../../../types/olap';
-import type { EditTab } from '../types';
+} from '../lib/olap/schemaPayload';
+import type { FactInfo } from '../types/news';
+import type { EditedDimension, EditedSchema } from '../types/olap';
+import type { EditTab } from '../pages/OlapSchemasPage/types';
 
 type OlapDimension = {
   name: string;

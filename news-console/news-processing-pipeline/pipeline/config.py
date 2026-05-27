@@ -27,4 +27,4 @@ class PipelineConfig:
     subcluster_articles_collection: str = "subcluster_articles"
     pipeline_timing_collection: str = "pipeline_timing"
     batch_size: int = 50
-    model_name: str = "gpt-4o-mini"
+    model_name: str = "gpt-5.4-mini"

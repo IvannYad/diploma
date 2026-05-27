@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
-import { fetchOlapSchemaTree, type OlapClusterTree } from '../../../api/olap';
-import type { Selection } from '../types';
-import { firstSelection } from '../types';
+import { fetchOlapSchemaTree, type OlapClusterTree } from '../api/olap';
+import type { Selection } from '../pages/OlapSchemasPage/types';
+import { firstSelection } from '../pages/OlapSchemasPage/types';
 
 export function useOlapTree() {
   const [clusters, setClusters] = useState<OlapClusterTree[]>([]);

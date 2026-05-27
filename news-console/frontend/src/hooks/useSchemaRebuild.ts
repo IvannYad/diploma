@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import { getRebuildProgress, rebuildOlapSchemas } from '../../../api/olap';
-import { buildEditableSchemaPayload } from '../../../lib/olap/schemaPayload';
-import type { EditedDimension, EditedSchema } from '../../../types/olap';
-import type { Selection } from '../types';
+import { getRebuildProgress, rebuildOlapSchemas } from '../api/olap';
+import { buildEditableSchemaPayload } from '../lib/olap/schemaPayload';
+import type { EditedDimension, EditedSchema } from '../types/olap';
+import type { Selection } from '../pages/OlapSchemasPage/types';
 
 type RebuildDeps = {
   selection: Selection | null;

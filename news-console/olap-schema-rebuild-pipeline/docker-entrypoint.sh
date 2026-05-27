@@ -9,7 +9,7 @@ set -eu
 : "${OLAP_REBUILD_SCHEMA_JSON:?OLAP_REBUILD_SCHEMA_JSON is required}"
 
 CALLBACK_ENDPOINT="${BACKEND_CALLBACK_ENDPOINT:-}"
-MODEL_NAME="${MODEL_NAME:-gpt-4o-mini}"
+MODEL_NAME="${MODEL_NAME:-gpt-5.4-mini}"
 
 exec python run_rebuild.py \
   --mongo-uri "${MONGO_URI}" \

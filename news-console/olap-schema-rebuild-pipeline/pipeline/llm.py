@@ -22,7 +22,7 @@ class LlmClient:
 
         Args:
             api_key: OpenAI API key.
-            model_name: Chat model identifier (e.g. gpt-4o-mini).
+            model_name: Chat model identifier (e.g. gpt-5.4-mini).
         """
         self._client = OpenAI(api_key=api_key)
         self._model_name = model_name

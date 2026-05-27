@@ -22,6 +22,6 @@ class RebuildConfig:
     clustering_meta_collection: str = "clustering_metadata"
     charts_meta_collection: str = "charts_metadata"
     pipeline_timing_collection: str = "pipeline_timing"
-    model_name: str = "gpt-4o-mini"
+    model_name: str = "gpt-5.4-mini"
     sample_size: int = 3
     batch_size: int = 50

@@ -29,7 +29,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--batch-size", type=int, default=50, help="Mini-batch size for clustering")
     parser.add_argument(
         "--model-name",
-        default=os.getenv("MODEL_NAME", "gpt-4o-mini"),
+        default=os.getenv("MODEL_NAME", "gpt-5.4-mini"),
         help="OpenAI model (or MODEL_NAME env var)",
     )
     parser.add_argument("--skip-charts", action="store_true", help="Skip chart config stage")

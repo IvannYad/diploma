@@ -95,7 +95,7 @@ public sealed class IntellectualProcessingSchedulingService : IIntellectualProce
         var containerBackendEndpoint   = ResolveCallbackEndpointForContainer(backendEndpoint, process.AssignedServer);
         var progressEndpoint           = ResolveProgressEndpoint(containerBackendEndpoint);
         var databaseName               = MongoDatabaseNameResolver.Resolve(containerMongoUri, "diploma");
-        var modelName                  = _configuration["Processing:ModelName"] ?? "gpt-4o-mini";
+        var modelName                  = _configuration["Processing:ModelName"] ?? "gpt-5.4-mini";
 
         var env = new List<string>
         {

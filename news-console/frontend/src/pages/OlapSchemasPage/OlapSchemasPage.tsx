@@ -6,10 +6,12 @@ import DimensionsEditor from './components/DimensionsEditor';
 import FactEditor from './components/FactEditor';
 import SchemaActionsBar from './components/SchemaActionsBar';
 import SchemaDiagram from './components/SchemaDiagram';
-import { useOlapTree } from './hooks/useOlapTree';
-import { useSchemaConfig } from './hooks/useSchemaConfig';
-import { useSchemaEditor } from './hooks/useSchemaEditor';
-import { useSchemaRebuild } from './hooks/useSchemaRebuild';
+import {
+  useOlapTree,
+  useSchemaConfig,
+  useSchemaEditor,
+  useSchemaRebuild,
+} from '../../hooks';
 
 export default function OlapSchemasPage() {
   const tree = useOlapTree();

@@ -27,5 +27,5 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--schema", required=True, help="JSON schema payload")
     parser.add_argument("--callback-endpoint", help="Callback endpoint for completion")
     parser.add_argument("--log-file", default=DEFAULT_LOG_FILE, help="Log file path")
-    parser.add_argument("--model", default="gpt-4o-mini", help="LLM model name")
+    parser.add_argument("--model", default="gpt-5.4-mini", help="LLM model name")
     return parser.parse_args()

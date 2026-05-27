@@ -1,8 +1,8 @@
 import { useEffect, useMemo, useState } from 'react';
-import { fetchChartConfig, invalidateChartConfigCache } from '../../../api/charts';
-import { isAutoDateDimensionName } from '../../../lib/olap/dateDimension';
-import type { ChartConfigFile } from '../../../types/news';
-import type { Selection } from '../types';
+import { fetchChartConfig, invalidateChartConfigCache } from '../api/charts';
+import { isAutoDateDimensionName } from '../lib/olap/dateDimension';
+import type { ChartConfigFile } from '../types/news';
+import type { Selection } from '../pages/OlapSchemasPage/types';
 
 export function useSchemaConfig(selection: Selection | null) {
   const [schemaConfig, setSchemaConfig] = useState<ChartConfigFile | null>(null);
