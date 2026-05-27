@@ -3,16 +3,6 @@ using System.Text;
 
 namespace NewsConsole.BusinessLogic.Services;
 
-/// <summary>
-/// Stateless AES-256-CBC encryption and decryption utility.
-/// Supports both a shared passphrase-derived key (for general data)
-/// and per-user keys derived from the user's identity via PBKDF2 (for sensitive user data such as API keys).
-/// <para>
-/// AES-256-CBC encryption helper. The encryption key is derived from any
-/// passphrase via SHA-256 so the config value can be any string.
-/// The random IV is prepended to the ciphertext before base64 encoding.
-/// </para>
-/// </summary>
 public sealed class EncryptionService
 {
     private readonly string _passphrase;

@@ -1,4 +1,3 @@
-"""Public stage runners invoked by the orchestrator."""
 
 from .chart_configs import run_chart_configs
 from .cluster_news import run_cluster_news

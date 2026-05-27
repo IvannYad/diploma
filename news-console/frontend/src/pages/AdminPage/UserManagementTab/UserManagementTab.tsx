@@ -56,7 +56,6 @@ export default function UserManagementTab() {
   const renderRow = (u: UserRow, isSelf = false) => (
     <tr
       key={u.id}
-      data-testid={`user-row-${u.email}`}
       data-user-email={u.email}
       className={[u.isBlocked ? 'admin-row--blocked' : '', isSelf ? 'admin-row--self' : ''].filter(Boolean).join(' ')}
     >
@@ -80,7 +79,6 @@ export default function UserManagementTab() {
           <>
             <button
               className="admin-btn admin-btn--sm"
-              data-testid="promote-user"
               onClick={() => changeRole(u.id, u.role === 'Admin' ? 'User' : 'Admin')}
               title={u.role === 'Admin' ? 'Demote to User' : 'Promote to Admin'}
             >
@@ -88,7 +86,6 @@ export default function UserManagementTab() {
             </button>
             <button
               className={`admin-btn admin-btn--sm ${u.isBlocked ? 'admin-btn--ok' : 'admin-btn--danger'}`}
-              data-testid="block-user"
               onClick={() => toggleBlocked(u.id, !u.isBlocked)}
             >
               {u.isBlocked ? 'Unblock' : 'Block'}
@@ -100,7 +97,7 @@ export default function UserManagementTab() {
   );
 
   return (
-    <div className="admin-table-wrap" data-testid="users-management-tab">
+    <div className="admin-table-wrap">
       <table className="admin-table">
         <thead>
           <tr>

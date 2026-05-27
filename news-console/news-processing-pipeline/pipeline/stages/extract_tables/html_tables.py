@@ -1,4 +1,3 @@
-"""Parse HTML tables from article bodies into row matrices for OLAP processing."""
 
 from __future__ import annotations
 

@@ -53,7 +53,7 @@ export default function OlapSchemasPage() {
   }
 
   return (
-    <div className="olap-page" data-testid="olap-schemas-page">
+    <div className="olap-page">
       <div className="olap-page__shell">
         <div className="olap-page__hero">
           <div>

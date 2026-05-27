@@ -4,11 +4,6 @@ using NewsConsole.Data.Entities;
 
 namespace NewsConsole.BusinessLogic.Services;
 
-/// <summary>
-/// Resolves a decrypted OpenAI API key for a given user.
-/// Retrieves the user's stored encrypted key and decrypts it using the per-user
-/// key derived from the user's identity via <see cref="EncryptionService"/>.
-/// </summary>
 public sealed class OpenAiKeyResolver : IOpenAiKeyResolver
 {
     private readonly UserManager<AppUser> _userManager;

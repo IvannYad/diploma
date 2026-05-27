@@ -1,4 +1,3 @@
-"""Cluster news stage: assign economic topic labels to prepared articles."""
 
 from .runner import run_cluster_news
 

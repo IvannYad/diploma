@@ -2,10 +2,6 @@ using MongoDB.Driver;
 
 namespace NewsConsole.Data;
 
-/// <summary>
-/// Process-wide pool of MongoDB clients, keyed by connection URI and database name.
-/// Multiple users can hold different connections concurrently.
-/// </summary>
 public interface IMongoConnectionRegistry
 {
     IMongoDatabase? GetDatabase(string uri, string databaseName);

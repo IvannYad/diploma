@@ -244,9 +244,9 @@ export default function SubclusterChart({ cluster, scId, currentArticleId, curre
     setExportError(null);
     setExporting(format);
     try {
-      const plot = document.querySelector('[data-testid="chart-plot-area"]') as HTMLElement | null;
+      const plot = document.querySelector('.chart-wrap') as HTMLElement | null;
       if (!plot) {
-        throw new Error('Chart plot area is not available.');
+        throw new Error('Chart not found.');
       }
       await exportChartFromPlotArea(plot, format);
     } catch (err) {
@@ -589,7 +589,7 @@ export default function SubclusterChart({ cluster, scId, currentArticleId, curre
   const factDisplay = factUnit ? `${factLabel} (${factUnit})` : factLabel;
 
   return (
-    <div className="chart-section" data-testid="subcluster-chart">
+    <div className="chart-section">
       <div className="chart-section-header">
         <div>
           <h2 className="chart-section-title"></h2>
@@ -598,14 +598,13 @@ export default function SubclusterChart({ cluster, scId, currentArticleId, curre
       </div>
 
       <div className="chart-card">
-        <div className="chart-controls" data-testid="chart-controls-panel">
+        <div className="chart-controls">
           <div className="chart-controls-main">
           {config.fact_selector?.enabled && (config.fact_selector.available_facts?.length ?? 0) > 1 && (
             <div className="chart-control-group">
               <label className="chart-control-label">{resolveTemplate(config.fact_selector.label ?? '')}</label>
               <select
                 className="chart-select"
-                data-testid="chart-fact-select"
                 value={selectedFact}
                 onChange={(e) => {
                   const newFact = e.target.value;
@@ -644,7 +643,6 @@ export default function SubclusterChart({ cluster, scId, currentArticleId, curre
               <div
                 key={f.dimension_name}
                 className="chart-control-group"
-                data-testid={`chart-filter-${f.dimension_name}`}
               >
                 <label className="chart-control-label" title={f.description || undefined}>
                   {f.label}
@@ -710,7 +708,6 @@ export default function SubclusterChart({ cluster, scId, currentArticleId, curre
               <button
                 type="button"
                 className="chart-export-btn chart-export-btn--png"
-                data-testid="chart-export-png"
                 disabled={exporting !== null}
                 onClick={() => handleExport('png')}
               >
@@ -719,7 +716,6 @@ export default function SubclusterChart({ cluster, scId, currentArticleId, curre
               <button
                 type="button"
                 className="chart-export-btn chart-export-btn--icon"
-                data-testid="chart-export-pdf"
                 aria-label="Export PDF"
                 title="Export PDF"
                 disabled={exporting !== null}
@@ -750,7 +746,7 @@ export default function SubclusterChart({ cluster, scId, currentArticleId, curre
           </div>
         ) : (
           <>
-            <div className="chart-wrap" data-testid="chart-plot-area">
+            <div className="chart-wrap">
               <ResponsiveContainer width="100%" height={320}>
                 {renderChart()}
               </ResponsiveContainer>

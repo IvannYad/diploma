@@ -1,4 +1,3 @@
-"""Rule-based OLAP schema inference and validation when LLM output is missing or invalid."""
 
 from __future__ import annotations
 

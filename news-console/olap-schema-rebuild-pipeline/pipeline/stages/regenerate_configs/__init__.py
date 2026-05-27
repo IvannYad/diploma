@@ -1,4 +1,3 @@
-"""Configuration regeneration stage package."""
 
 from .runner import run_regenerate_configs
 

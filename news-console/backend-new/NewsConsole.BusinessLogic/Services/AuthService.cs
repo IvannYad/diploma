@@ -10,10 +10,6 @@ using NewsConsole.Data.Entities;
 
 namespace NewsConsole.BusinessLogic.Services;
 
-/// <summary>
-/// Handles user registration and password-based login.
-/// Issues JWT tokens and generates encrypted per-user OpenAI API keys on registration.
-/// </summary>
 public sealed class AuthService : IAuthService
 {
     private readonly UserManager<AppUser> _userManager;

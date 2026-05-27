@@ -1,4 +1,3 @@
-"""HTTP completion callbacks to the backend after rebuild finishes."""
 
 from __future__ import annotations
 

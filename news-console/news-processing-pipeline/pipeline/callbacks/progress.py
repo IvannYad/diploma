@@ -1,4 +1,3 @@
-"""HTTP progress callbacks derived from pipeline NDJSON events."""
 
 from __future__ import annotations
 

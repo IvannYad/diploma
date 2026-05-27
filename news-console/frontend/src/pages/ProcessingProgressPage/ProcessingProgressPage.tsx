@@ -74,7 +74,7 @@ export default function ProcessingProgressPage() {
   const shouldAutoStart = locationState?.autoStart === true;
 
   useEffect(() => {
-    let disposed = false;
+    let cancelled = false;
 
     async function init() {
       setStartError(null);
@@ -88,21 +88,17 @@ export default function ProcessingProgressPage() {
 
           if (existingProcessId) {
             const existingProcess = await getProcess(existingProcessId);
-            if (disposed) return;
+            if (cancelled) return;
 
             const currentMongoUri = normalizeMongoUri(mongoUri);
             const existingMongoUri = normalizeMongoUri(existingProcess?.mongoDbServerUrl);
 
-            // Reuse only an active process for the same MongoDB URI.
-            // A different URI must start its own container/process.
             if (existingProcess?.isActive && existingMongoUri === currentMongoUri) {
               setActiveProcessId(existingProcessId);
               setProcess(existingProcess);
               return;
             }
 
-            // Discard stale or mismatched process so the new URI does not inherit
-            // progress from a different MongoDB server.
             sessionStorage.removeItem(PROCESS_ID_STORAGE_KEY);
             setActiveProcessId(null);
             setProcess(null);
@@ -111,7 +107,7 @@ export default function ProcessingProgressPage() {
           if (hasInitiatedRef.current) return;
 
           if (!mongoUri) {
-            setStartError('Missing Mongo URL. Please return to landing page and test the connection first.');
+            setStartError('Mongo URL missing — go back to the landing page.');
             return;
           }
 
@@ -121,7 +117,7 @@ export default function ProcessingProgressPage() {
             mongoDbServerUrl: mongoUri,
           });
 
-          if (disposed) return;
+          if (cancelled) return;
 
           setActiveProcessId(startResponse.processId);
           sessionStorage.setItem(PROCESS_ID_STORAGE_KEY, startResponse.processId);
@@ -134,7 +130,7 @@ export default function ProcessingProgressPage() {
 
         if (existingProcessId) {
           const existingProcess = await getProcess(existingProcessId);
-          if (disposed) return;
+          if (cancelled) return;
 
           setActiveProcessId(existingProcessId);
           setProcess(existingProcess);
@@ -142,16 +138,16 @@ export default function ProcessingProgressPage() {
         }
 
       } catch (e) {
-        if (disposed) return;
+        if (cancelled) return;
         setStartError(String(e));
       } finally {
-        if (!disposed) setIsStarting(false);
+        if (!cancelled) setIsStarting(false);
       }
     }
 
     init();
 
-    return () => { disposed = true; };
+    return () => { cancelled = true; };
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -214,7 +210,7 @@ export default function ProcessingProgressPage() {
     : `Processed ${progressProcessed} news`;
 
   return (
-    <div className="page processing-page" data-testid="processing-progress-page">
+    <div className="page processing-page">
       <div className="section-label">
         <h2>Processing Progress</h2>
         {newsCount != null && <span className="count">{newsCount} news</span>}
@@ -231,20 +227,20 @@ export default function ProcessingProgressPage() {
           </div>
         )}
         
-        <div className="processing-progress-wrap" data-testid="processing-stage-progress">
+        <div className="processing-progress-wrap">
           <div className="processing-progress-top">
-            <span data-testid="processing-stage-label">{stageLabel}</span>
-            <strong data-testid="processing-stage-percent">{stagePercent}%</strong>
+            <span>{stageLabel}</span>
+            <strong>{stagePercent}%</strong>
           </div>
           <div className={`processing-bar processing-bar--stages${isRunning ? ' processing-bar--running processing-bar--indeterminate' : ''}`}>
             <div className="processing-bar-fill" style={{ width: `${stagePercent}%` }} />
           </div>
         </div>
 
-        <div className="processing-progress-wrap" data-testid="processing-news-progress" style={{ marginTop: '16px' }}>
+        <div className="processing-progress-wrap" style={{ marginTop: '16px' }}>
           <div className="processing-progress-top">
-            <span data-testid="processing-news-label">{newsLabel}</span>
-            <strong data-testid="processing-news-percent">
+            <span>{newsLabel}</span>
+            <strong>
               {progressTotal > 0 ? `${newsPercent}%` : '—'}
             </strong>
           </div>
@@ -278,16 +274,15 @@ export default function ProcessingProgressPage() {
         )}
 
         {isCompleted && (
-          <div className="landing-status landing-status--ok" data-testid="processing-completion-message">
+          <div className="landing-status landing-status--ok">
             <span className="landing-status-icon">✓</span>
-            <span>Processing task completed successfully.</span>
+            <span>Processing finished.</span>
           </div>
         )}
 
         <div className="processing-actions">
           <button
             className="landing-btn landing-btn--secondary"
-            data-testid="processing-open-news-button"
             onClick={() => navigate('/news')}
             disabled={!isCompleted}
           >

@@ -1,4 +1,3 @@
-"""Finalize rebuild stage package."""
 
 from .runner import run_finalize_rebuild
 

@@ -1,4 +1,3 @@
-"""Rebuild pipeline stage entry points (validate, regenerate, finalize)."""
 
 from .finalize_rebuild import run_finalize_rebuild
 from .regenerate_configs import run_regenerate_configs

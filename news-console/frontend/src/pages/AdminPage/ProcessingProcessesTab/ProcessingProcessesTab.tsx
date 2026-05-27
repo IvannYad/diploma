@@ -51,7 +51,7 @@ export default function ProcessingProcessesTab() {
     status.charAt(0).toUpperCase() + status.slice(1);
 
   return (
-    <div className="processing-tab" data-testid="processing-history-tab">
+    <div className="processing-tab">
       <div className="processing-header">
         <h2>Intellectual Processing</h2>
       </div>
@@ -67,7 +67,6 @@ export default function ProcessingProcessesTab() {
         <label>
           <input
             type="checkbox"
-            data-testid="show-all-processes-checkbox"
             checked={showAll}
             onChange={(e) => setShowAll(e.target.checked)}
           />
@@ -95,7 +94,6 @@ export default function ProcessingProcessesTab() {
             <div
               key={process.id}
               className="processing-table-row"
-              data-testid={`processing-row-${process.resultStatus}`}
               data-process-type={process.type}
             >
               <div className="col-id">

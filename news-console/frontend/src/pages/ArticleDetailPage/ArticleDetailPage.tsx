@@ -68,7 +68,7 @@ export default function ArticleDetailPage() {
   }
 
   return (
-    <div className="page" data-testid="article-detail-page">
+    <div className="page">
       <div className="detail-wrap">
         <button className="back-btn" onClick={() => navigate(`/news/${listSearch}`)}
         >
@@ -101,7 +101,6 @@ export default function ArticleDetailPage() {
 
         <div
           className="detail-body"
-          data-testid="article-body"
           dangerouslySetInnerHTML={{ __html: article.fullBody ?? '(no content)' }}
         />
 

@@ -1,4 +1,3 @@
-"""Date / temporal dimension handling for OLAP schemas and chart X-axis."""
 
 from __future__ import annotations
 

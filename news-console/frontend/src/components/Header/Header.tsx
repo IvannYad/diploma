@@ -29,13 +29,13 @@ export default function Header() {
             <Link to="/olap-schemas" className="topbar-link">
               Edit OLAP Schemas
             </Link>
-            <Link to="/help" className="topbar-link" data-testid="help-link">
+            <Link to="/help" className="topbar-link">
               Довідка
             </Link>
           </>
         )}
         {isAdmin && (
-          <Link to="/admin" className="topbar-link topbar-link--admin" data-testid="admin-panel-link">
+          <Link to="/admin" className="topbar-link topbar-link--admin">
             Admin Console
           </Link>
         )}
@@ -52,7 +52,7 @@ export default function Header() {
                 <span>Signed in as <strong>{loggedInUser}</strong></span>
               </Link>
             </div>
-            <button className="topbar-logout-btn" data-testid="logout-button" onClick={handleLogout} type="button">
+            <button className="topbar-logout-btn" onClick={handleLogout} type="button">
               Log out
             </button>
           </>

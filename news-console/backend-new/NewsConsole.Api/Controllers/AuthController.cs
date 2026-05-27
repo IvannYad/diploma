@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using NewsConsole.BusinessLogic.DTOs;
 using NewsConsole.BusinessLogic.Interfaces;
 
@@ -8,9 +8,6 @@ namespace NewsConsole.Api.Controllers;
 [Route("api/auth")]
 public sealed class AuthController(IAuthService authService) : ControllerBase
 {
-    /// <summary>
-    /// Create a new account. Returns a JWT and a one-time plain-text API key.
-    /// </summary>
     [HttpPost("register")]
     public async Task<IActionResult> Register(
         [FromBody] RegisterRequestDto dto,
@@ -34,7 +31,6 @@ public sealed class AuthController(IAuthService authService) : ControllerBase
         }
     }
 
-    /// <summary>Authenticate with email + password and receive a JWT.</summary>
     [HttpPost("login")]
     public async Task<IActionResult> Login(
         [FromBody] PasswordLoginRequestDto dto,

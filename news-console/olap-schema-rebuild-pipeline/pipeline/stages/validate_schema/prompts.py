@@ -1,4 +1,3 @@
-"""LLM prompts for the OLAP schema validation stage during rebuild."""
 
 from __future__ import annotations
 

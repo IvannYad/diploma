@@ -1,4 +1,3 @@
-"""Wiring progress events to HTTP callbacks."""
 
 from __future__ import annotations
 

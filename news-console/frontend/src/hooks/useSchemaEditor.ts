@@ -260,9 +260,7 @@ export function useSchemaEditor(olapFacts: FactInfo[], olapDimensions: OlapDimen
 
   function handleCancelEdit(onClearStatus: () => void) {
     if (hasUnsavedChanges()) {
-      const confirmed = window.confirm(
-        'You have unsaved changes. Are you sure you want to discard them?',
-      );
+      const confirmed = window.confirm('Discard unsaved changes?');
       if (!confirmed) return;
     }
 

@@ -1,4 +1,3 @@
-"""Main pipeline orchestration: connect, run stages in order, handle errors."""
 
 from __future__ import annotations
 
@@ -177,7 +176,7 @@ def main() -> int:
 
         _save_pipeline_timing(timing, db, config, status="success")
         progress.pipeline_complete(summary)
-        logger.info("Pipeline completed successfully.")
+        logger.info("Pipeline done.")
         client.close()
 
         if process_id and callback_endpoint:

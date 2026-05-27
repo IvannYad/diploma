@@ -20,7 +20,6 @@ public sealed class ProfileController : ControllerBase
             ?? User.FindFirstValue("sub")
             ?? throw new UnauthorizedAccessException("No user id in token."));
 
-    /// <summary>Get the current user's profile.</summary>
     [HttpGet]
     public async Task<IActionResult> Get(CancellationToken ct)
     {
@@ -32,7 +31,6 @@ public sealed class ProfileController : ControllerBase
         catch (KeyNotFoundException ex) { return NotFound(new { error = ex.Message }); }
     }
 
-    /// <summary>Update the current user's profile (name, surname, address, phone, password, OpenAI key).</summary>
     [HttpPatch]
     public async Task<IActionResult> Update(
         [FromBody] UpdateProfileDto dto,

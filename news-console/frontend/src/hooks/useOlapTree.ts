@@ -11,14 +11,14 @@ export function useOlapTree() {
   const [selection, setSelection] = useState<Selection | null>(null);
 
   useEffect(() => {
-    let disposed = false;
+    let cancelled = false;
 
     async function load() {
       try {
         setLoading(true);
         setError('');
         const tree = await fetchOlapSchemaTree();
-        if (disposed) return;
+        if (cancelled) return;
 
         setClusters(tree.clusters);
         const initial = firstSelection(tree.clusters);
@@ -27,15 +27,15 @@ export function useOlapTree() {
           setExpanded({ [initial.clusterName]: true });
         }
       } catch (err) {
-        if (disposed) return;
+        if (cancelled) return;
         setError(err instanceof Error ? err.message : 'Failed to load OLAP schemas');
       } finally {
-        if (!disposed) setLoading(false);
+        if (!cancelled) setLoading(false);
       }
     }
 
     load();
-    return () => { disposed = true; };
+    return () => { cancelled = true; };
   }, []);
 
   const selectedCluster = useMemo(

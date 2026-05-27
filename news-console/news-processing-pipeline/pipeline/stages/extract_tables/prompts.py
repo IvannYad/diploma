@@ -1,4 +1,3 @@
-"""LLM system prompts for OLAP schema inference, schema fit checks, and record extraction."""
 
 SYSTEM_PROMPT_SCHEMA = """You are an expert in data analytics and OLAP modelling.
 

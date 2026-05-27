@@ -26,7 +26,7 @@ export default function DimensionsEditor({
   }
 
   return (
-    <div className="olap-page__dimension-config" data-testid="olap-dimensions-editor">
+    <div className="olap-page__dimension-config">
       <h3 className="olap-page__schema-title">Dimension configuration</h3>
       <p className="olap-page__schema-subtitle">
         Define dimension metadata once here. For each fact below, select only the needed dimensions.
@@ -35,20 +35,18 @@ export default function DimensionsEditor({
       <button
         type="button"
         className="olap-page__add-schema-btn"
-        data-testid="add-dimension-button"
         onClick={() => setShowNewDimensionInput(true)}
       >
         + Add dimension
       </button>
 
       {showNewDimensionInput && (
-        <div className="olap-page__form-group" data-testid="new-dimension-form">
+        <div className="olap-page__form-group">
           <label className="olap-page__form-label">
             Dimension name
             <input
               type="text"
               className="olap-page__form-input"
-              data-testid="new-dimension-name-input"
               value={newDimensionName}
               placeholder="e.g. Currency"
               onChange={(e) => setNewDimensionName(e.target.value)}
@@ -57,7 +55,6 @@ export default function DimensionsEditor({
           <button
             type="button"
             className="olap-page__btn olap-page__btn--primary"
-            data-testid="confirm-add-dimension-button"
             onClick={handleConfirmAdd}
             disabled={!newDimensionName.trim()}
           >
@@ -66,20 +63,18 @@ export default function DimensionsEditor({
         </div>
       )}
 
-      <div className="olap-page__dimension-editor-list" data-testid="dimension-list">
+      <div className="olap-page__dimension-editor-list">
         {dimensions.map((dimension) => (
           <div
             key={dimension.name}
             className="olap-page__dimension-editor-card"
-            data-testid={`dimension-card-${dimension.name}`}
           >
             <div className="olap-page__dimension-editor-head">
-              <strong data-testid={`dimension-name-${dimension.name}`}>{titleCase(dimension.name)}</strong>
+              <strong>{titleCase(dimension.name)}</strong>
               {!isAutoDateDimensionName(dimension.name) && (
                 <button
                   type="button"
                   className="olap-page__schema-row-delete"
-                  data-testid={`delete-dimension-${dimension.name}`}
                   aria-label={`Delete dimension ${dimension.name}`}
                   title="Delete dimension"
                   onClick={() => {
@@ -111,7 +106,6 @@ export default function DimensionsEditor({
               <input
                 type="text"
                 className="olap-page__form-input"
-                data-testid={`dimension-type-${dimension.name}`}
                 value={dimension.type ?? ''}
                 disabled={isAutoDateDimensionName(dimension.name)}
                 onChange={(e) => onUpdateDimension(dimension.name, { type: e.target.value })}
@@ -132,7 +126,6 @@ export default function DimensionsEditor({
               Possible values (one per line)
               <textarea
                 className="olap-page__form-textarea"
-                data-testid={`dimension-values-${dimension.name}`}
                 value={(dimension.possible_values ?? []).join('\n')}
                 disabled={isAutoDateDimensionName(dimension.name)}
                 onChange={(e) => {

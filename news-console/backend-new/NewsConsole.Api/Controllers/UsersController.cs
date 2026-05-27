@@ -16,7 +16,6 @@ public sealed class UsersController : ControllerBase
     public UsersController(IUserManagementService userManagement)
         => _userManagement = userManagement;
 
-    /// <summary>Returns all registered users with their role and blocked status.</summary>
     [HttpGet]
     public async Task<IActionResult> GetAll(CancellationToken ct)
     {
@@ -24,7 +23,6 @@ public sealed class UsersController : ControllerBase
         return Ok(users);
     }
 
-    /// <summary>Assigns a new role (<c>User</c> or <c>Admin</c>) to the specified user.</summary>
     [HttpPatch("{id:int}/role")]
     public async Task<IActionResult> ChangeRole(
         int id,
@@ -49,7 +47,6 @@ public sealed class UsersController : ControllerBase
         }
     }
 
-    /// <summary>Sets or clears the blocked flag for the specified user.</summary>
     [HttpPatch("{id:int}/blocked")]
     public async Task<IActionResult> SetBlocked(
         int id,

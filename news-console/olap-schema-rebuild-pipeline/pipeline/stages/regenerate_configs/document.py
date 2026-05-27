@@ -1,4 +1,3 @@
-"""Assemble chart_configs documents in the same shape as news-processing-pipeline."""
 
 from __future__ import annotations
 

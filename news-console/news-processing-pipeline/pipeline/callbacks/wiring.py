@@ -1,4 +1,3 @@
-"""Glue between PipelineProgress and HTTP progress callbacks."""
 
 from __future__ import annotations
 

@@ -1,4 +1,3 @@
-"""Validate and repair LLM chart configs against the OLAP schema."""
 
 from __future__ import annotations
 

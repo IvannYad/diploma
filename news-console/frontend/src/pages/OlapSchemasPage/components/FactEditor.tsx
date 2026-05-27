@@ -17,7 +17,7 @@ export default function FactEditor({
   onUpdateSchema,
 }: Props) {
   return (
-    <div className="olap-page__schema-editor" data-testid="olap-fact-editor" data-fact-name={factName}>
+    <div className="olap-page__schema-editor" data-fact-name={factName}>
       {schema.isSoftDeleted && (
         <div className="olap-page__schema-warning" role="status">
           This schema is marked for deletion. Click the trash icon in the left list to restore it.
@@ -30,7 +30,6 @@ export default function FactEditor({
           <input
             type="text"
             className="olap-page__form-input"
-            data-testid="fact-name-input"
             value={schema.name ?? ''}
             onChange={(e) => {
               const newName = e.target.value;
@@ -74,11 +73,9 @@ export default function FactEditor({
               <label
                 key={dimension.name}
                 className="olap-page__dimension-checkbox"
-                data-testid={`fact-dimension-${dimension.name}`}
               >
                 <input
                   type="checkbox"
-                  data-testid={`fact-dimension-checkbox-${dimension.name}`}
                   checked={isSelected}
                   onChange={(e) => {
                     const newDimensions = e.target.checked

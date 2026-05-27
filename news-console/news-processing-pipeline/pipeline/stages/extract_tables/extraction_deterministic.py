@@ -1,4 +1,3 @@
-"""Rule-based OLAP record extraction when table columns align with the schema field names."""
 
 from __future__ import annotations
 

@@ -1,4 +1,3 @@
-"""Schema validation stage package."""
 
 from .runner import run_validate_schema
 

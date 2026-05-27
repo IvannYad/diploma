@@ -1,4 +1,3 @@
-"""Wall-clock timing for rebuild pipeline stages persisted to MongoDB."""
 
 from __future__ import annotations
 

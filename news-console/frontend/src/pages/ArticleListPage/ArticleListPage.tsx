@@ -177,7 +177,7 @@ export default function ArticleListPage() {
       : 'Latest Articles';
 
   return (
-    <div className="page" data-testid="news-list-page">
+    <div className="page">
       <div className="search-row">
         <div className="search-bar">
           <svg className="search-icon" width="16" height="16" viewBox="0 0 24 24"

@@ -5,11 +5,6 @@ using NewsConsole.Data.Entities;
 
 namespace NewsConsole.BusinessLogic.Services;
 
-/// <summary>
-/// Manages the authenticated user's own profile.
-/// Provides retrieval of profile data and update of personal details,
-/// password changes, and the user's encrypted OpenAI API key.
-/// </summary>
 public sealed class ProfileService : IProfileService
 {
     private readonly UserManager<AppUser> _userManager;

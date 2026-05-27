@@ -1,4 +1,3 @@
-"""Logging configuration for the rebuild pipeline."""
 
 from __future__ import annotations
 

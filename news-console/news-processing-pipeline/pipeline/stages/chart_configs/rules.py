@@ -1,4 +1,3 @@
-"""Heuristic chart type and filter UI selection before LLM refinement."""
 
 from __future__ import annotations
 

@@ -3,11 +3,6 @@ using MongoDB.Driver;
 
 namespace NewsConsole.Data;
 
-/// <summary>
-/// Request-scoped view of the active MongoDB connection for the current HTTP request.
-/// Resolves the database from <see cref="MongoUriResolver"/> against the shared
-/// <see cref="IMongoConnectionRegistry"/>.
-/// </summary>
 public interface IMongoContext
 {
     IMongoDatabase? Database { get; }

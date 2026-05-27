@@ -1,4 +1,3 @@
-"""Persist chart configurations and metadata indexes to MongoDB."""
 
 from __future__ import annotations
 

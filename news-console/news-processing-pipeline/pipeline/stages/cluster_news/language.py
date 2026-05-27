@@ -1,4 +1,3 @@
-"""Language detection and label normalization for clustering."""
 
 from __future__ import annotations
 

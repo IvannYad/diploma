@@ -25,7 +25,7 @@ export default function RegisterPage() {
 
     const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRe.test(email.trim())) {
-      setError('Please enter a valid email address (e.g. you@example.com).');
+      setError('Invalid email address.');
       return;
     }
 
@@ -60,7 +60,7 @@ export default function RegisterPage() {
       };
 
       if (!res.ok) {
-        const msg = data.error ?? 'Registration failed. Please try again.';
+        const msg = data.error ?? 'Registration failed.';
         const isDuplicateEmail = msg.toLowerCase().includes('email') && msg.toLowerCase().includes('already');
         setEmailError(isDuplicateEmail);
         setError(msg);
@@ -74,7 +74,7 @@ export default function RegisterPage() {
 
       navigate('/');
     } catch {
-      setError('Could not reach the server. Please try again.');
+      setError('Server unreachable.');
     } finally {
       setLoading(false);
     }
@@ -105,7 +105,7 @@ export default function RegisterPage() {
             </div>
           </div>
 
-          <form onSubmit={handleSubmit} autoComplete="off" data-testid="register-form">
+          <form onSubmit={handleSubmit} autoComplete="off">
 
             <div className="register-row">
               <div className="register-field">

@@ -10,13 +10,6 @@ namespace NewsConsole.Api.Controllers;
 [Route("api")]
 public sealed class ImportController(IImportService importService) : ControllerBase
 {
-    /// <summary>
-    /// Accepts a JSON body with a <c>documents</c> array and an optional
-    /// <c>batchSize</c>, then streams import progress back as Server-Sent Events.
-    ///
-    /// Each SSE line is a JSON-serialised <see cref="ImportProgressDto"/>:
-    ///   <c>data: {"inserted":50,"total":200,"done":false,"error":null}</c>
-    /// </summary>
     [HttpPost("import-news")]
     public async Task ImportNews([FromBody] ImportRequestDto body, CancellationToken ct)
     {

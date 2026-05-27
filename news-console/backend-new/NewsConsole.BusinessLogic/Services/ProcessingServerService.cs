@@ -5,11 +5,6 @@ using NewsConsole.Data.Repositories;
 
 namespace NewsConsole.BusinessLogic.Services;
 
-/// <summary>
-/// Manages the registry of remote intellectual-processing servers.
-/// Provides full CRUD operations for server entries (IP address, maximum capacity)
-/// that are used by the scheduling service to distribute processing jobs.
-/// </summary>
 public sealed class ProcessingServerService : IProcessingServerService
 {
     private readonly IProcessingServerRepository _repository;

@@ -1,4 +1,3 @@
-"""Normalization of cluster and subcluster identifiers for MongoDB queries."""
 
 from __future__ import annotations
 

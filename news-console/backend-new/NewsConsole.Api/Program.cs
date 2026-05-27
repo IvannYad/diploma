@@ -6,6 +6,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using NewsConsole.BusinessLogic;
+using NewsConsole.BusinessLogic.Interfaces;
+using NewsConsole.BusinessLogic.Services;
+using NewsConsole.BusinessLogic.Startup;
 using NewsConsole.Data;
 using NewsConsole.Data.Entities;
 
@@ -19,7 +22,6 @@ builder.Logging.AddDebug();
 builder.Services.AddCors(o => o.AddDefaultPolicy(p =>
     p.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader()));
 
-// JWT authentication (used by [Authorize] endpoints; does not break unprotected routes).
 var jwtSecret = builder.Configuration["Jwt:Secret"] ?? "default-jwt-secret-32-chars-change!";
 builder.Services
     .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -52,94 +54,16 @@ var app = builder.Build();
 
 using (var scope = app.Services.CreateScope())
 {
-    var db          = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole<int>>>();
+    var sp = scope.ServiceProvider;
 
-    await db.Database.MigrateAsync();
-
-    foreach (var roleName in new[] { AppRoles.User, AppRoles.Admin })
-    {
-        if (!await roleManager.RoleExistsAsync(roleName))
-            await roleManager.CreateAsync(new IdentityRole<int>(roleName));
-    }
-
-    if (app.Environment.IsDevelopment())
-    {
-        var serverService = scope.ServiceProvider.GetRequiredService<NewsConsole.BusinessLogic.Interfaces.IProcessingServerService>();
-        var servers = await serverService.GetAllAsync();
-        if (servers.Count == 0)
-        {
-            await serverService.AddAsync(
-                new NewsConsole.BusinessLogic.DTOs.CreateProcessingServerDto("localhost", 10));
-        }
-    }
+    await DatabaseInitializer.InitializeAsync(
+        sp.GetRequiredService<AppDbContext>(),
+        sp.GetRequiredService<RoleManager<IdentityRole<int>>>(),
+        sp.GetRequiredService<UserManager<AppUser>>(),
+        sp.GetRequiredService<EncryptionService>(),
+        app.Environment,
+        sp.GetRequiredService<IProcessingServerService>());
 }
-
-app.Use(async (context, next) =>
-{
-    var logger = context.RequestServices
-        .GetRequiredService<ILoggerFactory>()
-        .CreateLogger("NewsConsole.Api.Request");
-
-    var startedAt = DateTime.UtcNow;
-    logger.LogTrace(
-        "Request started {Method} {Path}{QueryString}",
-        context.Request.Method,
-        context.Request.Path,
-        context.Request.QueryString.Value
-    );
-
-    try
-    {
-        await next();
-
-        var elapsedMs = (DateTime.UtcNow - startedAt).TotalMilliseconds;
-        var status = context.Response.StatusCode;
-
-        if (status >= 500)
-        {
-            logger.LogError(
-                "Request completed {Method} {Path} -> {StatusCode} in {ElapsedMs} ms",
-                context.Request.Method,
-                context.Request.Path,
-                status,
-                elapsedMs
-            );
-        }
-        else if (status >= 400)
-        {
-            logger.LogWarning(
-                "Request completed {Method} {Path} -> {StatusCode} in {ElapsedMs} ms",
-                context.Request.Method,
-                context.Request.Path,
-                status,
-                elapsedMs
-            );
-        }
-        else
-        {
-            logger.LogInformation(
-                "Request completed {Method} {Path} -> {StatusCode} in {ElapsedMs} ms",
-                context.Request.Method,
-                context.Request.Path,
-                status,
-                elapsedMs
-            );
-        }
-    }
-    catch (Exception ex)
-    {
-        var elapsedMs = (DateTime.UtcNow - startedAt).TotalMilliseconds;
-        logger.LogError(
-            ex,
-            "Unhandled exception for {Method} {Path} after {ElapsedMs} ms",
-            context.Request.Method,
-            context.Request.Path,
-            elapsedMs
-        );
-        throw;
-    }
-});
 
 app.UseCors();
 app.UseAuthentication();

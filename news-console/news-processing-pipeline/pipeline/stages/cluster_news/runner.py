@@ -1,4 +1,3 @@
-"""Stage 2: LLM topic clustering and persistence to clustered_articles."""
 
 from __future__ import annotations
 

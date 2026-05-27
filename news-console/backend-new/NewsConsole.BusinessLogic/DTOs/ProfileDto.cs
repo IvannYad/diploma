@@ -1,6 +1,5 @@
 namespace NewsConsole.BusinessLogic.DTOs;
 
-/// <summary>Returned by GET /api/profile.</summary>
 public sealed record ProfileDto(
     int    Id,
     string Name,
@@ -12,7 +11,6 @@ public sealed record ProfileDto(
     bool   HasOpenAiKey,
     DateTime CreatedAt);
 
-/// <summary>Body for PATCH /api/profile.</summary>
 public sealed record UpdateProfileDto(
     string? Name,
     string? Surname,

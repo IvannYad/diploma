@@ -1,4 +1,3 @@
-"""Command-line arguments and environment resolution for the pipeline."""
 
 from __future__ import annotations
 

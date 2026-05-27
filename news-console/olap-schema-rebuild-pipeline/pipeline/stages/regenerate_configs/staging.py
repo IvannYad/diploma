@@ -1,4 +1,3 @@
-"""Write regenerated schema and chart documents into the temporary staging database."""
 
 from __future__ import annotations
 

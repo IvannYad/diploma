@@ -77,7 +77,7 @@ export function useSchemaRebuild({
             exitEditModeSilently();
             await onSuccess();
             setSaveError('');
-            setSaveSuccess('Schema rebuild completed successfully!');
+            setSaveSuccess('Rebuild finished.');
             isComplete = true;
           } else if (progress.status === 'failed') {
             setSaveSuccess('');

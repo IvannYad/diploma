@@ -2,9 +2,6 @@ using MongoDB.Driver;
 
 namespace NewsConsole.Data;
 
-/// <summary>
-/// Extracts the database segment from a MongoDB connection string, if present.
-/// </summary>
 public static class MongoDatabaseNameResolver
 {
     public static string? FromUri(string? uri)

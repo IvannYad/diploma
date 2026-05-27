@@ -1,4 +1,3 @@
-"""Embedding-based intrinsic clustering metrics (silhouette, Davies–Bouldin, Calinski–Harabasz)."""
 
 from __future__ import annotations
 

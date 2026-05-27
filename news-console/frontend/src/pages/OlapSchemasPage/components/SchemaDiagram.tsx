@@ -21,7 +21,7 @@ export default function SchemaDiagram({
   autoDateDimensionName,
 }: Props) {
   return (
-    <div className="olap-page__schema-block" data-testid="olap-schema-diagram">
+    <div className="olap-page__schema-block">
       <h3 className="olap-page__schema-title">Conceptual OLAP schema</h3>
       <p className="olap-page__schema-subtitle">
         Star-like conceptual view. One diagram is rendered per fact.
@@ -45,7 +45,6 @@ export default function SchemaDiagram({
               <div
                 key={fact.name}
                 className="olap-page__star-card"
-                data-testid={`diagram-fact-${fact.name}`}
               >
                 <div className="olap-page__star-canvas">
                   <svg
@@ -88,7 +87,6 @@ export default function SchemaDiagram({
                         <span className="olap-page__dimension-dot" />
                         <span
                           className={`olap-page__dimension-label olap-page__dimension-label--${labelSide}`}
-                          data-testid={`diagram-dimension-${fact.name}-${dimension.name}`}
                         >
                           {titleCase(dimension.name)}
                         </span>

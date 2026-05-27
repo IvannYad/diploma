@@ -1,4 +1,3 @@
-"""Parsing of user-supplied proposed OLAP schema JSON."""
 
 from __future__ import annotations
 

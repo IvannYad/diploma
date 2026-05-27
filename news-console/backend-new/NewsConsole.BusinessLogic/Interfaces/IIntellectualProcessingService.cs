@@ -2,9 +2,6 @@ using NewsConsole.BusinessLogic.DTOs;
 
 namespace NewsConsole.BusinessLogic.Interfaces;
 
-/// <summary>
-/// Service for managing intellectual processing and OLAP rebuild tasks
-/// </summary>
 public interface IIntellectualProcessingService
 {
     Task<IReadOnlyList<ProcessingProcessDto>> GetActiveProcessesAsync(CancellationToken ct = default);

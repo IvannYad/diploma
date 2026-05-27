@@ -1,4 +1,3 @@
-"""Top-level orchestration for validate → regenerate → finalize rebuild flow."""
 
 from __future__ import annotations
 
@@ -237,7 +236,7 @@ def run_rebuild_pipeline(args: Namespace) -> int:
         _save_pipeline_timing(timing, main_db, config, status="success")
 
         logger.info("=" * 80)
-        logger.info("OLAP Schema Rebuild Pipeline Completed Successfully")
+        logger.info("OLAP rebuild done")
         logger.info("Temp Database: %s", temp_db_name)
         logger.info("=" * 80)
 
@@ -245,7 +244,7 @@ def run_rebuild_pipeline(args: Namespace) -> int:
             args.process_id,
             args.callback_endpoint,
             succeeded=True,
-            message="Schema rebuild completed successfully",
+            message="Rebuild done",
         )
 
         progress.pipeline_complete(

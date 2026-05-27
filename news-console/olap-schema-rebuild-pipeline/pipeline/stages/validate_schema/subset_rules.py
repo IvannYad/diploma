@@ -1,4 +1,3 @@
-"""Deterministic rules and schema diffs for OLAP rebuild validation."""
 
 from __future__ import annotations
 

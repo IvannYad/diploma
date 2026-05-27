@@ -103,7 +103,7 @@ export default function ProfilePage() {
       setPhone(data.phone ?? '');
       setCurPw(''); setNewPw(''); setConfPw('');
       setOpenAiKey('');
-      setSuccess('Profile updated successfully.');
+      setSuccess('Profile saved.');
     } catch {
       setError('Could not reach the server.');
     } finally {

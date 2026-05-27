@@ -1,4 +1,3 @@
-"""Text formatting of schemas and sample tables for LLM validation prompts."""
 
 from __future__ import annotations
 

@@ -15,10 +15,8 @@ public static class DependencyInjection
         this IServiceCollection services,
         IConfiguration configuration)
     {
-        
         services.AddData(configuration);
 
-        
         var encryptionPassphrase = configuration["Encryption:Passphrase"]
             ?? "default-encryption-passphrase-change-in-production";
         var jwtSecret = configuration["Jwt:Secret"]
@@ -27,7 +25,6 @@ public static class DependencyInjection
         var encryption = new EncryptionService(encryptionPassphrase);
         services.AddSingleton(encryption);
 
-        
         var databaseName = configuration["Mongo:DatabaseName"] ?? "diploma";
 
         services.AddScoped<IConnectionTestService>(sp =>
@@ -38,7 +35,6 @@ public static class DependencyInjection
 
         services.AddScoped<IImportService, ImportService>();
 
-        
         services.AddScoped<IAuthService>(sp => new AuthService(
             sp.GetRequiredService<UserManager<AppUser>>(),
             jwtSecret,
@@ -54,12 +50,11 @@ public static class DependencyInjection
 
         services.AddScoped<IProcessingServerService, ProcessingServerService>();
 
-        
         services.AddScoped<INewsService, NewsService>();
         services.AddScoped<IChartService, ChartService>();
         services.AddScoped<IIntellectualProcessingSchedulingService, IntellectualProcessingSchedulingService>();
         services.AddScoped<IIntellectualProcessingService, IntellectualProcessingService>();
-        
+
         return services;
     }
 }

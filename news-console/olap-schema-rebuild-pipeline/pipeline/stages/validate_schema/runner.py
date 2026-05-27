@@ -1,4 +1,3 @@
-"""Stage 1: validate a user-proposed OLAP schema against sample extracted data."""
 
 from __future__ import annotations
 

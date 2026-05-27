@@ -1,4 +1,3 @@
-"""Stage 2: build schema and chart config in the temp database before finalize."""
 
 from __future__ import annotations
 

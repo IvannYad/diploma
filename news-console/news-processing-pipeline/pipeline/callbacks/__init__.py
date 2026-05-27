@@ -1,4 +1,3 @@
-"""Backend webhook integration for pipeline completion and progress."""
 
 from .completion import send_completion_callback
 from .progress import derive_progress_endpoint, send_progress_callback

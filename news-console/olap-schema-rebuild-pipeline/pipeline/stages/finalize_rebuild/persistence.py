@@ -1,4 +1,3 @@
-"""Copy staged configs from temp database to main and remove old subcluster documents."""
 
 from __future__ import annotations
 

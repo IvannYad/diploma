@@ -1,4 +1,3 @@
-"""Progress reporting for pipeline stages (stdout NDJSON and optional HTTP callbacks)."""
 
 from __future__ import annotations
 

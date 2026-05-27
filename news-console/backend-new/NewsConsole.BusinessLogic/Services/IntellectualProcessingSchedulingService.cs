@@ -10,12 +10,6 @@ using System.Runtime.InteropServices;
 
 namespace NewsConsole.BusinessLogic.Services;
 
-/// <summary>
-/// Schedules intellectual-processing jobs on remote Docker hosts.
-/// Selects the least-loaded registered server, resolves the user's decrypted OpenAI API key,
-/// and starts the appropriate processing Docker container (news pipeline or OLAP schema rebuild)
-/// via the Docker remote API. Also handles job cancellation by stopping the running container.
-/// </summary>
 public sealed class IntellectualProcessingSchedulingService : IIntellectualProcessingSchedulingService
 {
     private readonly IProcessingProcessRepository _repository;
@@ -44,7 +38,7 @@ public sealed class IntellectualProcessingSchedulingService : IIntellectualProce
         if (servers.Count == 0)
         {
             _logger.LogError("No processing servers configured");
-            throw new InvalidOperationException("No processing servers are configured. Please add servers in the admin panel.");
+            throw new InvalidOperationException("No processing servers configured.");
         }
 
         var activeEntities = await _repository.GetActiveAsync(ct);

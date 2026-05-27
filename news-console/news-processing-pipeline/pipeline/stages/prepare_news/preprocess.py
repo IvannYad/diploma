@@ -1,4 +1,3 @@
-"""Text normalization for news titles and bodies before clustering."""
 
 from __future__ import annotations
 

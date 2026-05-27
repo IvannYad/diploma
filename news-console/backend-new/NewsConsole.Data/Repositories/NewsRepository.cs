@@ -7,9 +7,6 @@ using NewsConsole.Data.Entities;
 
 namespace NewsConsole.Data.Repositories;
 
-/// <summary>
-/// Loads articles per Mongo connection and keeps an in-memory cache keyed by connection.
-/// </summary>
 public sealed class NewsRepository : INewsRepository
 {
     private readonly IMongoConnectionRegistry _registry;

@@ -1,16 +1,8 @@
-"""Configuration types for the news processing pipeline."""
-
 from dataclasses import dataclass
 
 
 @dataclass(slots=True)
 class PipelineConfig:
-    """Holds connection settings, collection names, and LLM parameters for all pipeline stages.
-
-    Passed into every stage runner so MongoDB targets and model options stay consistent
-    across prepare, cluster, extract, and chart generation.
-    """
-
     mongo_uri: str
     openai_token: str
     db_name: str = "diploma"

@@ -1,4 +1,3 @@
-"""Schema-fit orchestration: header pre-filter, parallel LLM checks, same winner selection."""
 
 from __future__ import annotations
 

@@ -11,7 +11,6 @@ export default function AdminTabs({ tab, onChange }: AdminTabsProps) {
     <div className="admin-tabs">
       <button
         className={`admin-tab${tab === 'users' ? ' admin-tab--active' : ''}`}
-        data-testid="admin-users-tab"
         onClick={() => onChange('users')}
       >
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -22,7 +21,6 @@ export default function AdminTabs({ tab, onChange }: AdminTabsProps) {
       </button>
       <button
         className={`admin-tab${tab === 'servers' ? ' admin-tab--active' : ''}`}
-        data-testid="admin-servers-tab"
         onClick={() => onChange('servers')}
       >
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -33,7 +31,6 @@ export default function AdminTabs({ tab, onChange }: AdminTabsProps) {
       </button>
       <button
         className={`admin-tab${tab === 'processing' ? ' admin-tab--active' : ''}`}
-        data-testid="admin-processing-tab"
         onClick={() => onChange('processing')}
       >
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

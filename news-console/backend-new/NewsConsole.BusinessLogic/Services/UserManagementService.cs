@@ -6,11 +6,6 @@ using NewsConsole.Data.Entities;
 
 namespace NewsConsole.BusinessLogic.Services;
 
-/// <summary>
-/// Provides administrative operations over application users.
-/// Allows listing all users, changing a user's role, and toggling the blocked state of an account.
-/// Intended for use by administrators only.
-/// </summary>
 public sealed class UserManagementService : IUserManagementService
 {
     private readonly UserManager<AppUser> _userManager;

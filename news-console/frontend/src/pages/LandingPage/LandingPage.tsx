@@ -230,7 +230,7 @@ export default function LandingPage() {
   }
 
   return (
-    <div className="landing landing--with-header" data-testid="landing-page">
+    <div className="landing landing--with-header">
       <div className="landing-inner">
         <div className="landing-hero">
           <div className="landing-eyebrow">News Intelligence Platform</div>
@@ -282,7 +282,6 @@ export default function LandingPage() {
             <div className="landing-connect-row">
               <input
                 id="mongo-uri"
-                data-testid="mongo-uri-input"
                 className="landing-connect-input"
                 type="text"
                 placeholder="mongodb+srv://user:pass@cluster.mongodb.net/diploma"
@@ -302,7 +301,6 @@ export default function LandingPage() {
               <button
                 type="button"
                 className="landing-connect-test-btn"
-                data-testid="mongo-test-button"
                 onClick={handleTest}
                 disabled={testStatus === 'testing' || !mongoUri.trim()}
               >
@@ -315,25 +313,25 @@ export default function LandingPage() {
             </div>
 
             {testStatus === 'testing' && (
-              <div className="landing-status landing-status--info" data-testid="connection-testing-indicator" role="status">
+              <div className="landing-status landing-status--info" role="status">
                 <span className="landing-spinner" />
                 <span>Checking connection…</span>
               </div>
             )}
 
             {testStatus !== 'idle' && testStatus !== 'testing' && (
-              <span data-testid="connection-test-complete" data-status={testStatus} hidden />
+              <span data-status={testStatus} hidden />
             )}
 
             {testStatus === 'connection_failed' && importStatus === 'idle' && (
-              <div className="landing-status landing-status--error" data-testid="connection-error-message">
+              <div className="landing-status landing-status--error">
                 <span className="landing-status-icon">✕</span>
                 <span>{formatConnectionError(testMessage)}</span>
               </div>
             )}
 
             {!activeProcessId && testStatus === 'bad_format' && importStatus === 'idle' && (
-              <div className="landing-status landing-status--warn" data-testid="empty-database-message">
+              <div className="landing-status landing-status--warn">
                 <span className="landing-status-icon">⚠</span>
                 <span>
                   Connected, but no news articles were found in the database. Upload a JSON file to get started.
@@ -356,7 +354,7 @@ export default function LandingPage() {
                 </button>
               </div>
             ) : testStatus === 'needs_processing' && (
-              <div className="landing-status landing-status--warn" data-testid="needs-processing-message">
+              <div className="landing-status landing-status--warn">
                 <span className="landing-status-icon">⚠</span>
                 <span>
                   Connected.{newsCount != null ? ` Found ${newsCount.toLocaleString()} articles` : ' Articles found'} — analytics data has not been generated yet.
@@ -368,7 +366,6 @@ export default function LandingPage() {
               <button
                 type="button"
                 className="landing-btn landing-btn--secondary"
-                data-testid="start-processing-button"
                 style={{ marginTop: '12px', width: '100%', justifyContent: 'center' }}
                 title={!isLoggedIn ? 'Sign in to start processing' : 'Start processing pipeline'}
                 onClick={handleStartProcessing}
@@ -379,7 +376,7 @@ export default function LandingPage() {
 
             {!activeProcessId && testStatus === 'ready' && (
               <>
-                <div className="landing-status landing-status--ok" data-testid="connection-ready-message">
+                <div className="landing-status landing-status--ok">
                   <span className="landing-status-icon">✓</span>
                   <span>
                     Connected. All collections present — you can open the news reader.
@@ -388,7 +385,6 @@ export default function LandingPage() {
                 <button
                   type="button"
                   className="landing-btn landing-btn--secondary"
-                  data-testid="open-news-reader-button"
                   style={{ marginTop: '12px', width: '100%', justifyContent: 'center' }}
                   onClick={handleOpenNewsReader}
                 >
@@ -398,7 +394,7 @@ export default function LandingPage() {
             )}
 
             {testStatus === 'bad_format' && (
-              <div className="landing-upload-section" data-testid="news-upload-section">
+              <div className="landing-upload-section">
                 {importStatus !== 'done' && (
                   <>
                     <div className="landing-upload-format-row">
@@ -408,14 +404,13 @@ export default function LandingPage() {
                       <button
                         type="button"
                         className="landing-format-link"
-                        data-testid="view-format-button"
                         onClick={() => setShowFormatModal(true)}
                       >
                         View format
                       </button>
                     </div>
                     <div className="landing-upload-row">
-                      <label className="landing-file-label" htmlFor="news-file" data-testid="news-file-label">
+                      <label className="landing-file-label" htmlFor="news-file">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                           <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/>
                         </svg>
@@ -424,7 +419,6 @@ export default function LandingPage() {
                       <input
                         ref={fileInputRef}
                         id="news-file"
-                        data-testid="news-file-input"
                         type="file"
                         accept=".json,application/json"
                         style={{ display: 'none' }}
@@ -433,7 +427,6 @@ export default function LandingPage() {
                       <button
                         type="button"
                         className="landing-connect-test-btn"
-                        data-testid="load-news-button"
                         disabled={!importFile || importStatus === 'uploading' || importStatus === 'validating'}
                         onClick={handleImport}
                       >
@@ -446,14 +439,14 @@ export default function LandingPage() {
                 )}
 
                 {importStatus === 'error' && (
-                  <div className="landing-status landing-status--error" data-testid="import-error-message" style={{ marginTop: '10px' }}>
+                  <div className="landing-status landing-status--error" style={{ marginTop: '10px' }}>
                     <span className="landing-status-icon">✕</span>
                     <span>{importError}</span>
                   </div>
                 )}
 
                 {importStatus === 'uploading' && importTotal > 0 && (
-                  <div className="landing-upload-progress" data-testid="import-progress-indicator">
+                  <div className="landing-upload-progress">
                     <div
                       className="landing-upload-bar"
                       style={{ width: `${Math.round((importInserted / importTotal) * 100)}%` }}
@@ -466,10 +459,10 @@ export default function LandingPage() {
 
                 {importStatus === 'done' && (
                   <>
-                    <div className="landing-status landing-status--ok" data-testid="import-success-message" style={{ marginTop: '10px' }}>
+                    <div className="landing-status landing-status--ok" style={{ marginTop: '10px' }}>
                       <span className="landing-status-icon">✓</span>
                       <span>
-                        {importTotal} documents inserted successfully.
+                        {importTotal} documents imported.
                       </span>
                     </div>
                     <button
@@ -489,7 +482,7 @@ export default function LandingPage() {
       </div>
 
       {showFormatModal && (
-        <div className="landing-modal-overlay" data-testid="format-modal" role="dialog" aria-modal="true">
+        <div className="landing-modal-overlay" role="dialog" aria-modal="true">
           <div className="landing-modal">
             <div className="landing-modal-header">
               <h2 className="landing-modal-title">News JSON format</h2>

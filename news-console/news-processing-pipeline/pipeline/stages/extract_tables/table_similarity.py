@@ -1,4 +1,3 @@
-"""Cheap table-structure similarity checks before LLM schema-fit calls."""
 
 from __future__ import annotations
 

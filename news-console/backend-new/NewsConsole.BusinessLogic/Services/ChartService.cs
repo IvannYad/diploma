@@ -4,12 +4,6 @@ using NewsConsole.Data.Repositories;
 
 namespace NewsConsole.BusinessLogic.Services;
 
-/// <summary>
-/// Provides OLAP chart data for the frontend.
-/// Resolves subcluster membership for individual articles, builds the full OLAP schema tree
-/// (clusters → subclusters), and retrieves chart configuration and data payloads
-/// stored in MongoDB by the processing pipeline.
-/// </summary>
 public sealed class ChartService(IChartRepository repository) : IChartService
 {
     public async Task<SubclusterDto> FindSubclusterAsync(

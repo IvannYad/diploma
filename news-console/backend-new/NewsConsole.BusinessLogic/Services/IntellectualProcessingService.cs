@@ -7,12 +7,6 @@ using System.Collections.Concurrent;
 
 namespace NewsConsole.BusinessLogic.Services;
 
-/// <summary>
-/// Orchestrates LLM-based (intellectual) processing jobs.
-/// Initiates new processing runs by delegating server selection and Docker scheduling
-/// to <see cref="IIntellectualProcessingSchedulingService"/>, persists job records,
-/// and merges live in-memory progress updates with persisted state for real-time status reporting.
-/// </summary>
 public sealed class IntellectualProcessingService : IIntellectualProcessingService
 {
     private sealed record RuntimeProgress(

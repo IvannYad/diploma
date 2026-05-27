@@ -1,4 +1,3 @@
-"""Shared text helpers for clustering and quality metrics."""
 
 from __future__ import annotations
 

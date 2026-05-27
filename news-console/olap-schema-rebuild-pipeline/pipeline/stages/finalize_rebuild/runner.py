@@ -1,4 +1,3 @@
-"""Stage 3: atomically replace main-database configs from the temp staging database."""
 
 from __future__ import annotations
 

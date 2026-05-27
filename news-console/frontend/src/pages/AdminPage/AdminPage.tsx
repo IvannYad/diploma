@@ -11,7 +11,7 @@ export default function AdminPage() {
   const [tab, setTab] = useState<Tab>('users');
 
   return (
-    <div className="admin-page" data-testid="admin-page">
+    <div className="admin-page">
       <div className="admin-inner">
         <AdminHeader />
         <AdminTabs tab={tab} onChange={setTab} />

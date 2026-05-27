@@ -1,4 +1,3 @@
-"""Logging configuration for the pipeline entrypoint."""
 
 from __future__ import annotations
 

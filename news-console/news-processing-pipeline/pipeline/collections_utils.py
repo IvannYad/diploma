@@ -1,4 +1,3 @@
-"""Generic collection utilities for batch processing."""
 
 from __future__ import annotations
 

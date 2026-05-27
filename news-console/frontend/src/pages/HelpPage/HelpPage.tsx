@@ -2,7 +2,7 @@ import './HelpPage.scss';
 
 export default function HelpPage() {
   return (
-    <div className="page" data-testid="help-page">
+    <div className="page">
       <div className="help-wrap">
         <h1 className="help-title">Довідка News Trend</h1>
         <p className="help-intro">

@@ -8,12 +8,6 @@ using NewsConsole.Data;
 
 namespace NewsConsole.BusinessLogic.Services;
 
-/// <summary>
-/// Imports raw news JSON documents into the active MongoDB database.
-/// Validates each document for required fields before insertion and writes
-/// documents in configurable batches, streaming incremental progress
-/// back to the caller via <see cref="IAsyncEnumerable{T}"/>.
-/// </summary>
 public sealed class ImportService(IMongoContext mongoContext) : IImportService
 {
     private static readonly HashSet<string> RequiredFields =

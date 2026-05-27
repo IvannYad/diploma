@@ -1,4 +1,3 @@
-"""Stage 1: load raw news from MongoDB and write prepared_news documents."""
 
 from __future__ import annotations
 

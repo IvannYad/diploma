@@ -1,4 +1,3 @@
-"""Compatibility shim — use pipeline.identity instead."""
 
 from pipeline.identity import build_cluster_subcluster_filter, build_identity_fields
 

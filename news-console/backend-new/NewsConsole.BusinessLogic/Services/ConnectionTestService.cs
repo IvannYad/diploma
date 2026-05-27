@@ -7,12 +7,6 @@ using NewsConsole.Data.Repositories;
 
 namespace NewsConsole.BusinessLogic.Services;
 
-/// <summary>
-/// Validates a MongoDB connection string by performing a live ping against the target server.
-/// On success, registers the connection in <see cref="IMongoConnectionRegistry"/> for subsequent operations
-/// and inspects the target database for the presence of required collections and fields.
-/// Returns a structured <see cref="ConnectionTestDto"/> describing the connection state.
-/// </summary>
 public sealed class ConnectionTestService : IConnectionTestService
 {
     private static readonly HashSet<string> RequiredFields =
@@ -99,9 +93,6 @@ public sealed class ConnectionTestService : IConnectionTestService
         }
     }
 
-    /// <summary>
-    /// Maps driver/network exceptions to a short, user-facing message (at most two sentences).
-    /// </summary>
     private static string ToUserFriendlyConnectionMessage(Exception ex)
     {
         var text = ex.ToString();

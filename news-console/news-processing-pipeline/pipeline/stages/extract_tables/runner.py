@@ -1,4 +1,3 @@
-"""Stage 3: extract HTML tables into OLAP subclusters and persist schemas and records."""
 
 from __future__ import annotations
 

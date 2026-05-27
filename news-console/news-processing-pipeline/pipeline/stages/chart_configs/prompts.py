@@ -1,4 +1,3 @@
-"""LLM system prompt for single-chart configuration (v3 schema)."""
 
 SYSTEM_PROMPT_CHART = """You are a senior data-visualization engineer.
 

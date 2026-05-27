@@ -1,4 +1,3 @@
-"""HTTP callbacks for rebuild progress and completion."""
 
 from .completion import send_completion_callback
 from .progress import derive_progress_endpoint, send_progress_callback

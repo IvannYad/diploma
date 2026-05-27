@@ -1,4 +1,3 @@
-"""HTTP progress callbacks during rebuild stages."""
 
 from __future__ import annotations
 

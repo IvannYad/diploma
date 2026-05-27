@@ -111,13 +111,12 @@ export default function ProcessingServersTab() {
   if (error) return <div className="admin-empty admin-empty--error">{error}</div>;
 
   return (
-    <div data-testid="admin-servers-panel">
-      <form className="admin-server-form" data-testid="add-server-form" onSubmit={addServer}>
+    <div>
+      <form className="admin-server-form" onSubmit={addServer}>
         <div className="admin-server-form-row">
           <div className="admin-server-field">
             <input
               className={`admin-input${ipFormatErr ? ' admin-input--error' : ''}`}
-              data-testid="server-ip-input"
               type="text"
               placeholder="IP address (e.g. 192.168.1.10)"
               value={newIp}
@@ -133,7 +132,6 @@ export default function ProcessingServersTab() {
           </div>
           <input
             className="admin-input admin-input--short"
-            data-testid="server-capacity-input"
             type="number"
             min={1}
             placeholder="Max capacity"
@@ -141,7 +139,7 @@ export default function ProcessingServersTab() {
             onChange={e => setNewCap(e.target.value)}
             required
           />
-          <button className="admin-btn admin-btn--primary" data-testid="add-server-submit" type="submit" disabled={adding}>
+          <button className="admin-btn admin-btn--primary" type="submit" disabled={adding}>
             {adding ? 'Adding...' : '+ Add Server'}
           </button>
         </div>
@@ -165,7 +163,7 @@ export default function ProcessingServersTab() {
               {servers.map(s => {
                 const ed = editing[s.id];
                 return (
-                  <tr key={s.id} data-testid={`server-row-${s.ipAddress}`}>
+                  <tr key={s.id}>
                     <td>
                       {ed ? (
                         <input
@@ -177,7 +175,7 @@ export default function ProcessingServersTab() {
                         <span className="admin-cell--mono">{s.ipAddress}</span>
                       )}
                     </td>
-                    <td data-testid={`server-capacity-${s.ipAddress}`}>
+                    <td>
                       {ed ? (
                         <input
                           className="admin-input admin-input--short admin-input--inline"
@@ -194,7 +192,7 @@ export default function ProcessingServersTab() {
                     <td className="admin-actions">
                       {ed ? (
                         <>
-                          <button className="admin-btn admin-btn--sm admin-btn--ok" data-testid={`save-server-${s.ipAddress}`} onClick={() => saveEdit(s.id)}>Save</button>
+                          <button className="admin-btn admin-btn--sm admin-btn--ok" onClick={() => saveEdit(s.id)}>Save</button>
                           <button
                             className="admin-btn admin-btn--sm"
                             onClick={() => setEditing(prev => {
@@ -210,14 +208,12 @@ export default function ProcessingServersTab() {
                         <>
                           <button
                             className="admin-btn admin-btn--sm"
-                            data-testid={`edit-server-${s.ipAddress}`}
                             onClick={() => setEditing(prev => ({ ...prev, [s.id]: { ip: s.ipAddress, cap: String(s.maxCapacity) } }))}
                           >
                             Edit
                           </button>
                           <button
                             className="admin-btn admin-btn--sm admin-btn--danger"
-                            data-testid={`delete-server-${s.ipAddress}`}
                             onClick={() => deleteServer(s.id)}
                           >
                             Remove

@@ -1,4 +1,3 @@
-"""Command-line argument parsing for run_rebuild.py."""
 
 from __future__ import annotations
 

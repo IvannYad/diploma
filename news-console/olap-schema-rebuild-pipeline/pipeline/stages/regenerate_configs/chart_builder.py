@@ -1,4 +1,3 @@
-"""Build the nested chart section for a chart_configs document (v3 schema)."""
 
 from __future__ import annotations
 

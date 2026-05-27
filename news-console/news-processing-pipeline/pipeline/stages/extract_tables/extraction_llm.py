@@ -1,4 +1,3 @@
-"""LLM batch extraction of OLAP records and per-fact record shaping."""
 
 from __future__ import annotations
 

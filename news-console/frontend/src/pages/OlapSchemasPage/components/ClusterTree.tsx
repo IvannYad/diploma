@@ -75,7 +75,6 @@ export default function ClusterTree({
                           key={subcluster.name}
                           type="button"
                           className={`olap-page__subcluster-row${isSelected ? ' olap-page__subcluster-row--selected' : ''}`}
-                          data-testid={`subcluster-${cluster.name}-${subcluster.name}`}
                           onClick={() => onSelectSubcluster({ clusterName: cluster.name, subclusterName: subcluster.name })}
                           title={subcluster.name}
                         >
@@ -97,7 +96,6 @@ export default function ClusterTree({
           <button
             type="button"
             className="olap-page__add-schema-btn"
-            data-testid="add-fact-button"
             onClick={onAddSchema}
           >
             + Add fact
@@ -109,7 +107,6 @@ export default function ClusterTree({
               <div
                 key={schema.name}
                 className={`olap-page__schema-row${isSelected ? ' olap-page__schema-row--selected' : ''}${isSoftDeleted ? ' olap-page__schema-row--soft-deleted' : ''}`}
-                data-testid={`fact-row-${schema.name}`}
                 onClick={() => onSelectFact(schema.name)}
                 role="button"
                 tabIndex={0}
@@ -123,7 +120,6 @@ export default function ClusterTree({
                 <span className="olap-page__schema-row-name">{titleCase(schema.name)}</span>
                 <div
                   className={`olap-page__schema-row-delete${isSoftDeleted ? ' olap-page__schema-row-delete--restore' : ''}${!isSoftDeleted && activeSchemaCount <= 1 ? ' olap-page__schema-row-delete--disabled' : ''}`}
-                  data-testid={`delete-fact-${schema.name}`}
                   onClick={(e) => {
                     e.stopPropagation();
                     if (!isSoftDeleted && activeSchemaCount <= 1) {

@@ -1,32 +1,20 @@
 namespace NewsConsole.BusinessLogic.DTOs;
 
-/// <summary>
-/// Type of intellectual processing task
-/// </summary>
 public enum ProcessingType
 {
-    /// <summary>Intellectual processing of news articles (clustering, extraction, metrics)</summary>
     IntellectualProcessing,
     
-    /// <summary>OLAP schema rebuild</summary>
     OlapSchemaRebuild,
 }
 
-/// <summary>
-/// Status of a processing task result
-/// </summary>
 public enum ProcessingResultStatus
 {
-    /// <summary>Process is pending or running</summary>
     Running,
     
-    /// <summary>Process completed successfully</summary>
     Success,
     
-    /// <summary>Process failed with an error</summary>
     Failed,
     
-    /// <summary>Process was cancelled</summary>
     Cancelled,
 }
 

@@ -1,4 +1,3 @@
-"""Build default v3 chart configuration JSON from OLAP schema and heuristics."""
 
 from __future__ import annotations
 

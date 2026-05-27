@@ -1,4 +1,3 @@
-"""Stage metadata for the pipeline orchestrator."""
 
 from __future__ import annotations
 

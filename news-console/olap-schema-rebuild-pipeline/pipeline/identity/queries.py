@@ -1,4 +1,3 @@
-"""MongoDB filter and document field builders for cluster/subcluster identity."""
 
 from __future__ import annotations
 

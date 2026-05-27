@@ -1,4 +1,3 @@
-"""Numeric parsing helpers for table cell values."""
 
 from __future__ import annotations
 

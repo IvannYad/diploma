@@ -10,7 +10,7 @@ export function useSchemaConfig(selection: Selection | null) {
   const [schemaError, setSchemaError] = useState('');
 
   useEffect(() => {
-    let disposed = false;
+    let cancelled = false;
 
     async function loadSchema() {
       if (!selection?.clusterName || !selection.subclusterName) {
@@ -24,19 +24,19 @@ export function useSchemaConfig(selection: Selection | null) {
         setSchemaLoading(true);
         setSchemaError('');
         const config = await fetchChartConfig(selection.clusterName, selection.subclusterName);
-        if (disposed) return;
+        if (cancelled) return;
         setSchemaConfig(config);
       } catch (err) {
-        if (disposed) return;
+        if (cancelled) return;
         setSchemaConfig(null);
         setSchemaError(err instanceof Error ? err.message : 'Failed to load OLAP schema');
       } finally {
-        if (!disposed) setSchemaLoading(false);
+        if (!cancelled) setSchemaLoading(false);
       }
     }
 
     loadSchema();
-    return () => { disposed = true; };
+    return () => { cancelled = true; };
   }, [selection?.clusterName, selection?.subclusterName]);
 
   const olapFacts = schemaConfig?.olap_schema?.facts ?? [];

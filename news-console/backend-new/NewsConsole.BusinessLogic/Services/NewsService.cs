@@ -5,11 +5,6 @@ using NewsConsole.Data.Repositories;
 
 namespace NewsConsole.BusinessLogic.Services;
 
-/// <summary>
-/// Retrieves and filters news articles from MongoDB.
-/// Enriches articles with their cluster and subcluster labels, exposes distinct cluster
-/// summaries, and supports paginated, keyword-filtered, and cluster-filtered queries.
-/// </summary>
 public sealed partial class NewsService(INewsRepository repository) : INewsService
 {
     [GeneratedRegex(@"<[^>]+>", RegexOptions.Compiled)]

@@ -1,4 +1,3 @@
-"""Assign articles to subclusters by schema fit and extract OLAP records per subcluster."""
 
 from __future__ import annotations
 

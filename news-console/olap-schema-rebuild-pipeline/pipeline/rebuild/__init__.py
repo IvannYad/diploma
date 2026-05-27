@@ -1,4 +1,3 @@
-"""Rebuild orchestration, CLI, logging, and HTTP callbacks."""
 
 from .cli import parse_args
 from .logging_setup import setup_logging

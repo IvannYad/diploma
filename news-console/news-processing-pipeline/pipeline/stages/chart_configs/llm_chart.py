@@ -1,4 +1,3 @@
-"""LLM user prompt assembly and chart JSON generation."""
 
 from __future__ import annotations
 

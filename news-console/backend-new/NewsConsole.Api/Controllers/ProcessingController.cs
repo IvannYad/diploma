@@ -28,9 +28,6 @@ public sealed class ProcessingController : ControllerBase
             ?? User.FindFirstValue("sub")
             ?? throw new UnauthorizedAccessException("No user id in token."));
 
-    /// <summary>
-    /// Get all active (running) processing processes
-    /// </summary>
     [HttpGet("active")]
     public async Task<IActionResult> GetActiveProcesses(CancellationToken ct)
     {
@@ -46,9 +43,6 @@ public sealed class ProcessingController : ControllerBase
         }
     }
 
-    /// <summary>
-    /// Get all processing processes including completed/failed ones
-    /// </summary>
     [HttpGet("all")]
     public async Task<IActionResult> GetAllProcesses(CancellationToken ct)
     {
@@ -64,9 +58,6 @@ public sealed class ProcessingController : ControllerBase
         }
     }
 
-    /// <summary>
-    /// Get a specific processing process
-    /// </summary>
     [HttpGet("{processId}")]
     public async Task<IActionResult> GetProcess(string processId, CancellationToken ct)
     {
@@ -85,10 +76,6 @@ public sealed class ProcessingController : ControllerBase
         }
     }
 
-    /// <summary>
-    /// Initiate a new processing task.
-    /// The system will automatically select the server with the least load.
-    /// </summary>
     [HttpPost("initiate")]
     public async Task<IActionResult> InitiateProcess(
         [FromBody] CreateProcessingProcessDto dto,
@@ -122,10 +109,6 @@ public sealed class ProcessingController : ControllerBase
         }
     }
 
-    /// <summary>
-    /// Update the status of a processing task (callback from container)
-    /// This endpoint can be called without authentication from the Docker container
-    /// </summary>
     [HttpPost("callback")]
     [AllowAnonymous]
     public async Task<IActionResult> UpdateProcessStatus(
@@ -138,7 +121,7 @@ public sealed class ProcessingController : ControllerBase
                 return BadRequest(new { error = "ProcessId is required" });
 
             await _processingService.UpdateProcessStatusAsync(dto, ct);
-            return Ok(new { message = "Status updated successfully" });
+            return Ok(new { message = "OK" });
         }
         catch (KeyNotFoundException ex)
         {

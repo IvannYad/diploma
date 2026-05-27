@@ -33,7 +33,6 @@ export default function SchemaActionsBar({
           <button
             type="button"
             className="olap-page__edit-btn"
-            data-testid="olap-edit-button"
             onClick={onEdit}
           >
             Edit
@@ -44,14 +43,13 @@ export default function SchemaActionsBar({
             <button
               type="button"
               className="olap-page__btn olap-page__btn--primary"
-              data-testid="olap-save-button"
               onClick={onSave}
               disabled={saveLoading}
             >
               {saveLoading ? 'Saving...' : 'Save and Rebuild schemas'}
             </button>
             {saveLoading && (
-              <span className="olap-page__save-loading" data-testid="olap-rebuild-loading" role="status">
+              <span className="olap-page__save-loading" role="status">
                 Rebuilding…
               </span>
             )}
@@ -67,12 +65,12 @@ export default function SchemaActionsBar({
       </div>
 
       {isEditMode && saveError && (
-        <div className="olap-page__error" data-testid="olap-rebuild-error">
+        <div className="olap-page__error">
           {saveError}
         </div>
       )}
       {isEditMode && saveSuccess && (
-        <div className="olap-page__empty" data-testid="olap-rebuild-success">
+        <div className="olap-page__empty">
           {saveSuccess}
         </div>
       )}
@@ -84,7 +82,6 @@ export default function SchemaActionsBar({
             role="tab"
             aria-selected={editTab === 'facts'}
             className={`olap-page__edit-tab${editTab === 'facts' ? ' olap-page__edit-tab--active' : ''}`}
-            data-testid="olap-facts-tab"
             onClick={() => onTabChange('facts')}
           >
             Facts
@@ -94,7 +91,6 @@ export default function SchemaActionsBar({
             role="tab"
             aria-selected={editTab === 'dimensions'}
             className={`olap-page__edit-tab${editTab === 'dimensions' ? ' olap-page__edit-tab--active' : ''}`}
-            data-testid="olap-dimensions-tab"
             onClick={() => onTabChange('dimensions')}
           >
             Dimensions

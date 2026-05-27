@@ -1,4 +1,3 @@
-"""CLI entry point for the OLAP schema rebuild pipeline."""
 
 from __future__ import annotations
 

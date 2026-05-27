@@ -1,4 +1,3 @@
-"""Short, readable chart and filter labels derived from OLAP schema text."""
 
 from __future__ import annotations
 

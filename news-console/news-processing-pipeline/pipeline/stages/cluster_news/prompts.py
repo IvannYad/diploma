@@ -1,4 +1,3 @@
-"""LLM system prompts for topic label generation, merging, and per-article classification."""
 
 SYSTEM_PROMPT_GENERATE = """You are an expert in classifying news article texts.
 Your task is to analyse a batch of news article texts and generate meaningful topic labels

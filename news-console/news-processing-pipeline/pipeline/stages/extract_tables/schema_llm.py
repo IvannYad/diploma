@@ -1,4 +1,3 @@
-"""LLM calls to infer OLAP schemas and check schema fit for new articles."""
 
 from __future__ import annotations
 

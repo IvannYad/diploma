@@ -1,4 +1,3 @@
-"""Optional metrics stage: cluster distribution and intrinsic embedding scores (not in default run)."""
 
 from __future__ import annotations
 

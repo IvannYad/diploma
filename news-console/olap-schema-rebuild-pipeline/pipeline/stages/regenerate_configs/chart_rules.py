@@ -1,4 +1,3 @@
-"""Rule-based chart type and axis heuristics for regenerated chart configs."""
 
 from __future__ import annotations
 

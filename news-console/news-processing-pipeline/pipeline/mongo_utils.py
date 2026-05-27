@@ -1,4 +1,3 @@
-"""MongoDB connection helpers for the pipeline."""
 
 from __future__ import annotations
 

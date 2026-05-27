@@ -1,4 +1,3 @@
-"""Stage 4: generate interactive chart configuration per OLAP subcluster."""
 
 from __future__ import annotations
 

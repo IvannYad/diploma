@@ -1,4 +1,3 @@
-"""HTTP callback when the pipeline finishes or fails."""
 
 from __future__ import annotations
 

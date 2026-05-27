@@ -1,4 +1,3 @@
-"""MongoDB writes for extracted OLAP data, indexes, and schema catalog."""
 
 from __future__ import annotations
 

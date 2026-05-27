@@ -1,4 +1,3 @@
-"""X-axis strategy detection for chart configuration (article date vs table temporal dimension)."""
 
 from __future__ import annotations
 

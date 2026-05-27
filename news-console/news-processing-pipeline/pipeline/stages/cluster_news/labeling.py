@@ -1,4 +1,3 @@
-"""LLM-driven label generation, merging, and per-article assignment."""
 
 from __future__ import annotations
 

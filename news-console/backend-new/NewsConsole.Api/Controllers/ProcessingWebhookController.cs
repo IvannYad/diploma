@@ -21,9 +21,6 @@ public sealed class ProcessingWebhookController : ControllerBase
         _logger = logger;
     }
 
-    /// <summary>
-    /// Webhook endpoint called by Docker processing code for live progress updates.
-    /// </summary>
     [HttpPost("progress")]
     public async Task<IActionResult> NotifyProgress(
         [FromBody] ProcessingProgressWebhookRequest dto,
@@ -67,9 +64,6 @@ public sealed class ProcessingWebhookController : ControllerBase
         }
     }
 
-    /// <summary>
-    /// Webhook endpoint called by Docker processing code after task completion.
-    /// </summary>
     [HttpPost("completed")]
     public async Task<IActionResult> NotifyCompleted(
         [FromBody] ProcessingCompletionWebhookRequest dto,

@@ -30,7 +30,7 @@ export default function LoginPage() {
       };
 
       if (!res.ok) {
-        setError(data.error ?? 'Login failed. Please check your credentials.');
+        setError(data.error ?? 'Invalid email or password.');
         return;
       }
 
@@ -40,7 +40,7 @@ export default function LoginPage() {
       sessionStorage.setItem(LOGIN_ROLE_KEY,  data.role  ?? 'user');
       navigate('/news');
     } catch {
-      setError('Could not reach the server. Please try again.');
+      setError('Server unreachable.');
     } finally {
       setLoading(false);
     }
@@ -71,7 +71,7 @@ export default function LoginPage() {
             </div>
           </div>
 
-          <form onSubmit={handleSubmit} autoComplete="off" data-testid="login-form">
+          <form onSubmit={handleSubmit} autoComplete="off">
             <label className="landing-connect-label" htmlFor="login-email">
               Email address
             </label>

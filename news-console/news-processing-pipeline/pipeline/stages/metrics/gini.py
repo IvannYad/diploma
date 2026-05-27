@@ -1,4 +1,3 @@
-"""Cluster size inequality metric for clustering quality reports."""
 
 
 def gini(values: list[int]) -> float:
