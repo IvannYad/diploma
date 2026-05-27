@@ -1,0 +1,72 @@
+[
+  {
+    "id": "70816",
+    "title": "Крос-курси основних світових валют 20 лютого на 09.00",
+    "date": "2026-02-20",
+    "time": "09:04:10",
+    "code": "2026-02-20/pub090418",
+    "body_preview": "<table border=\"1\" cellspacing=\"0\">\n<tr><td><b>Валюта</b>\n</td><td><b>USD</b>\n</td><td><b>EUR</b>\n</td><td><b>JPY</b>\n</td><td><b>GBP</b>\n</td><td><b>CHF</b>\n</td></tr>\n<tr><td> USD\n</td><td> -\n</td><t...",
+    "full_body": "<table border=\"1\" cellspacing=\"0\">\n<tr><td><b>Валюта</b>\n</td><td><b>USD</b>\n</td><td><b>EUR</b>\n</td><td><b>JPY</b>\n</td><td><b>GBP</b>\n</td><td><b>CHF</b>\n</td></tr>\n<tr><td> USD\n</td><td> -\n</td><td> 1.1756\n</td><td> 0.0064\n</td><td> 1.3448\n</td><td> 1.2892\n</td></tr>\n<tr><td> EUR\n</td><td> 0.8506\n</td><td> -\n</td><td> 0.5482\n</td><td> 1.1439\n</td><td> 1.0966\n</td></tr>\n<tr><td> JPY\n</td><td> 155.1500\n</td><td> 182.4100\n</td><td> -\n</td><td> 208.6450\n</td><td> 200.0410\n</td></tr>\n<tr><td> GBP\n</td><td> 0.7436\n</td><td> 0.8742\n</td><td> 0.4793\n</td><td> -\n</td><td> 0.9586\n</td></tr>\n<tr><td> CHF\n</td><td> 0.7757\n</td><td> 0.9119\n</td><td> 0.5000\n</td><td> 1.0431\n</td><td> -\n</td></tr>\n</table>\nUSD - долар США, EUR – євро, JPY - японська єна, GBP - фунт стерлінгів, CHF - швейцарський франк.\nЗа даними інформаційного агентства Bloomberg",
+    "retrieved_at": "2026-02-21T15:18:27.095691"
+  },
+  {
+    "id": "48248",
+    "title": "Індекс UONIA та його похідні показники",
+    "date": "2025-08-20",
+    "time": "10:19:01",
+    "code": "2025-08-20/pub101906",
+    "body_preview": "Київ. 20 серпня. ІНТЕРФАКС-УКРАЇНА – Національний банк України наводить індекс UONIA та його похідні показники на 20 серпня 2025р.\n<table border=\"1\" cellspacing=\"0\">\n<tr><td><b>Дата</b>\n</td><td><b>Ку...",
+    "full_body": "Київ. 20 серпня. ІНТЕРФАКС-УКРАЇНА – Національний банк України наводить індекс UONIA та його похідні показники на 20 серпня 2025р.\n<table border=\"1\" cellspacing=\"0\">\n<tr><td><b>Дата</b>\n</td><td><b>Кумулятивний індекс UONIA</b>\n</td><td><b>Кумулятивна середня ставка UONIA 1M</b>\n</td><td><b>Кумулятивна середня ставка UONIA 3M</b>\n</td><td><b>Кумулятивна середня ставка UONIA 6M</b>\n</td><td><b>Індекс міжбанківських ставок овернайт UONIA</b>\n</td></tr>\n<tr><td> 18.08.2025\n</td><td> 199.43936649\n</td><td> 15.57291\n</td><td> 15.79849\n</td><td> 15.99788\n</td><td> 15.5000\n</td></tr>\n<tr><td> 19.08.2025\n</td><td> 199.52405992\n</td><td> 15.57704\n</td><td> 15.79171\n</td><td> 16.00385\n</td><td> 15.5000\n</td></tr>\n<tr><td> 20.08.2025\n</td><td> 199.60878931\n</td><td> 15.58112\n</td><td> 15.79171\n</td><td> 16.00981\n</td><td> -\n</td></tr>\n</table>\nДані: Нацбанк України",
+    "retrieved_at": "2026-02-21T15:18:41.840863"
+  },
+  {
+    "id": "46391",
+    "title": "Індекс UONIA та його похідні показники",
+    "date": "2025-08-12",
+    "time": "09:12:08",
+    "code": "2025-08-12/pub091212",
+    "body_preview": "Київ. 12 серпня. ІНТЕРФАКС-УКРАЇНА – Національний банк України наводить індекс UONIA та його похідні показники на 12 серпня 2025р.\n<table border=\"1\" cellspacing=\"0\">\n<tr><td><b>Дата</b>\n</td><td><b>Ку...",
+    "full_body": "Київ. 12 серпня. ІНТЕРФАКС-УКРАЇНА – Національний банк України наводить індекс UONIA та його похідні показники на 12 серпня 2025р.\n<table border=\"1\" cellspacing=\"0\">\n<tr><td><b>Дата</b>\n</td><td><b>Кумулятивний індекс UONIA</b>\n</td><td><b>Кумулятивна середня ставка UONIA 1M</b>\n</td><td><b>Кумулятивна середня ставка UONIA 3M</b>\n</td><td><b>Кумулятивна середня ставка UONIA 6M</b>\n</td><td><b>Індекс міжбанківських ставок овернайт UONIA</b>\n</td></tr>\n<tr><td> 08.08.2025\n</td><td> 198.59449280\n</td><td> 15.56181\n</td><td> 15.79144\n</td><td> 15.93657\n</td><td> 15.5079\n</td></tr>\n<tr><td> 11.08.2025\n</td><td> 198.84762569\n</td><td> 15.56389\n</td><td> 15.79849\n</td><td> 15.95618\n</td><td> 15.5000\n</td></tr>\n<tr><td> 12.08.2025\n</td><td> 198.93206784\n</td><td> 15.56830\n</td><td> 15.79171\n</td><td> 15.96214\n</td><td> -\n</td></tr>\n</table>\nДані: Нацбанк України",
+    "retrieved_at": "2026-02-21T15:18:42.596810"
+  },
+  {
+    "id": "44523",
+    "title": "Індекс UONIA та його похідні показники",
+    "date": "2025-08-04",
+    "time": "10:06:22",
+    "code": "2025-08-04/pub100630",
+    "body_preview": "Київ. 4 серпня. ІНТЕРФАКС-УКРАЇНА – Національний банк України наводить індекс UONIA та його похідні показники на 4 серпня 2025р.\n<table border=\"1\" cellspacing=\"0\">\n<tr><td><b>Дата</b>\n</td><td><b>Куму...",
+    "full_body": "Київ. 4 серпня. ІНТЕРФАКС-УКРАЇНА – Національний банк України наводить індекс UONIA та його похідні показники на 4 серпня 2025р.\n<table border=\"1\" cellspacing=\"0\">\n<tr><td><b>Дата</b>\n</td><td><b>Кумулятивний індекс UONIA</b>\n</td><td><b>Кумулятивна середня ставка UONIA 1M</b>\n</td><td><b>Кумулятивна середня ставка UONIA 3M</b>\n</td><td><b>Кумулятивна середня ставка UONIA 6M</b>\n</td><td><b>Індекс міжбанківських ставок овернайт UONIA</b>\n</td></tr>\n<tr><td> 31.07.2025\n</td><td> 197.92207246\n</td><td> 15.56276\n</td><td> 15.79232\n</td><td> 15.89147\n</td><td> 15.4563\n</td></tr>\n<tr><td> 01.08.2025\n</td><td> 198.00588460\n</td><td> 15.56215\n</td><td> 15.79183\n</td><td> 15.90021\n</td><td> 15.4659\n</td></tr>\n<tr><td> 04.08.2025\n</td><td> 198.25758371\n</td><td> 15.56030\n</td><td> 15.79747\n</td><td> 15.91442\n</td><td> -\n</td></tr>\n</table>\nДані: Нацбанк України",
+    "retrieved_at": "2026-02-21T15:18:43.456128"
+  },
+  {
+    "id": "44813",
+    "title": "Крос-курси основних світових валют 5 серпня на 09.00",
+    "date": "2025-08-05",
+    "time": "09:05:38",
+    "code": "2025-08-05/pub090543",
+    "body_preview": "<table border=\"1\" cellspacing=\"0\">\n<tr><td><b>Валюта</b>\n</td><td><b>USD</b>\n</td><td><b>EUR</b>\n</td><td><b>JPY</b>\n</td><td><b>GBP</b>\n</td><td><b>CHF</b>\n</td></tr>\n<tr><td> USD\n</td><td> \n</td><td...",
+    "full_body": "<table border=\"1\" cellspacing=\"0\">\n<tr><td><b>Валюта</b>\n</td><td><b>USD</b>\n</td><td><b>EUR</b>\n</td><td><b>JPY</b>\n</td><td><b>GBP</b>\n</td><td><b>CHF</b>\n</td></tr>\n<tr><td> USD\n</td><td> \n</td><td> 1.1550\n</td><td> 0.0068\n</td><td> 1.3277\n</td><td> 1.2347\n</td></tr>\n<tr><td> EUR\n</td><td> 0.8658\n</td><td> \n</td><td> 0.0059\n</td><td> 1.1495\n</td><td> 1.0690\n</td></tr>\n<tr><td> JPY\n</td><td> 147.1600\n</td><td> 169.9698\n</td><td> \n</td><td> 195.3843\n</td><td> 181.7014\n</td></tr>\n<tr><td> GBP\n</td><td> 0.7532\n</td><td> 0.8699\n</td><td> 0.0051\n</td><td> \n</td><td> 0.9300\n</td></tr>\n<tr><td> CHF\n</td><td> 0.8099\n</td><td> 0.9354\n</td><td> 0.0055\n</td><td> 1.0753\n</td><td> \n</td></tr>\n</table>\nUSD - долар США, JPY - японська єна, CHF - швейцарський франк, GBP - фунт стерлінгів, EUR - євро\nЗа даними інформаційного агентства Bloomberg",
+    "retrieved_at": "2026-02-21T15:18:43.448408"
+  },
+  {
+    "id": "43214",
+    "title": "Крос-курси основних світових валют 29 липня на 09.00",
+    "date": "2025-07-29",
+    "time": "09:02:30",
+    "code": "2025-07-29/pub090234",
+    "body_preview": "<table border=\"1\" cellspacing=\"0\">\n<tr><td><b>Валюта</b>\n</td><td><b>USD</b>\n</td><td><b>EUR</b>\n</td><td><b>JPY</b>\n</td><td><b>GBP</b>\n</td><td><b>CHF</b>\n</td></tr>\n<tr><td> USD\n</td><td> \n</td><td...",
+    "full_body": "<table border=\"1\" cellspacing=\"0\">\n<tr><td><b>Валюта</b>\n</td><td><b>USD</b>\n</td><td><b>EUR</b>\n</td><td><b>JPY</b>\n</td><td><b>GBP</b>\n</td><td><b>CHF</b>\n</td></tr>\n<tr><td> USD\n</td><td> \n</td><td> 1.1583\n</td><td> 0.0067\n</td><td> 1.3351\n</td><td> 1.2441\n</td></tr>\n<tr><td> EUR\n</td><td> 0.8633\n</td><td> \n</td><td> 0.0058\n</td><td> 1.1526\n</td><td> 1.0741\n</td></tr>\n<tr><td> JPY\n</td><td> 148.2500\n</td><td> 171.7180\n</td><td> \n</td><td> 197.9286\n</td><td> 184.4364\n</td></tr>\n<tr><td> GBP\n</td><td> 0.7490\n</td><td> 0.8676\n</td><td> 0.0051\n</td><td> \n</td><td> 0.9318\n</td></tr>\n<tr><td> CHF\n</td><td> 0.8038\n</td><td> 0.9310\n</td><td> 0.0054\n</td><td> 1.0732\n</td><td> \n</td></tr>\n</table>\nUSD - долар США, JPY - японська єна, CHF - швейцарський франк, GBP - фунт стерлінгів, EUR - євро\nЗа даними інформаційного агентства Bloomberg",
+    "retrieved_at": "2026-02-21T15:18:43.497876"
+  },
+  {
+    "id": "42024",
+    "title": "Крос-курси основних світових валют 23 липня на 12:00 кч",
+    "date": "2025-07-23",
+    "time": "12:02:06",
+    "code": "2025-07-23/pub120217",
+    "body_preview": "<table border=\"1\" cellspacing=\"0\">\n<tr><td><b>Валюта</b>\n</td><td><b>USD</b>\n</td><td><b>EUR</b>\n</td><td><b>JPY</b>\n</td><td><b>GBP</b>\n</td><td><b>CHF</b>\n</td></tr>\n<tr><td><b>USD</b>\n</td><td> -\n<...",
+    "full_body": "<table border=\"1\" cellspacing=\"0\">\n<tr><td><b>Валюта</b>\n</td><td><b>USD</b>\n</td><td><b>EUR</b>\n</td><td><b>JPY</b>\n</td><td><b>GBP</b>\n</td><td><b>CHF</b>\n</td></tr>\n<tr><td><b>USD</b>\n</td><td> -\n</td><td> 1.1733\n</td><td> 0.0068\n</td><td> 1.3541\n</td><td> 1.2617\n</td></tr>\n<tr><td><b>EUR</b>\n</td><td> 0.8523\n</td><td> -\n</td><td> 0.0058\n</td><td> 1.1541\n</td><td> 1.0753\n</td></tr>\n<tr><td><b>JPY</b>\n</td><td> 146.8000\n</td><td> 172.2404\n</td><td> -\n</td><td> 198.7819\n</td><td> 185.2132\n</td></tr>\n<tr><td><b>GBP</b>\n</td><td> 0.7385\n</td><td> 0.8665\n</td><td> 0.0050\n</td><td> -\n</td><td> 0.9317\n</td></tr>\n<tr><td><b>CHF</b>\n</td><td> 0.7926\n</td><td> 0.9300\n</td><td> 0.0054\n</td><td> 1.0733\n</td><td> -\n</td></tr>\n</table>\nUSD - долар США. JPY - японська єна. CHF - швейцарський франк. GBP - фунт стерлінгів. EUR - євро\nЗа даними інформаційного агентства Bloomberg",
+    "retrieved_at": "2026-02-21T15:18:45.326274"
+  }
+]

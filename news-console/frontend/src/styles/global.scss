@@ -1,0 +1,21 @@
+@use '../assets/colors' as c;
+@use '../assets/fonts' as f;
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --black:   #{c.$color-black};
+  --ink:     #{c.$color-ink};
+  --mid:     #{c.$color-mid};
+  --muted:   #{c.$color-muted};
+  --border:  #{c.$color-border};
+  --bg:      #{c.$color-bg};
+  --white:   #{c.$color-white};
+  --accent:  #{c.$color-accent};
+  --accent2: #{c.$color-accent2};
+  --serif:   #{f.$font-serif};
+  --sans:    #{f.$font-sans};
+}
+
+html { font-size: 16px; }
+body { background: c.$color-bg; color: c.$color-ink; font-family: f.$font-sans; line-height: 1.5; }

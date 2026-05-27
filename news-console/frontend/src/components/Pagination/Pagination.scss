@@ -1,0 +1,28 @@
+@use '../../assets/colors' as c;
+@use '../../assets/fonts' as f;
+@use '../../assets/sizes' as s;
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 36px;
+  button {
+    height: s.$btn-height;
+    min-width: s.$btn-height;
+    padding: 0 12px;
+    border: 1px solid c.$color-border;
+    border-radius: s.$radius-xs;
+    background: c.$color-white;
+    color: c.$color-ink;
+    font-family: f.$font-sans;
+    font-size: f.$fs-small;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background s.$trans-fast, color s.$trans-fast, border-color s.$trans-fast;
+    &:hover:not(:disabled) { background: c.$color-black; color: c.$color-white; border-color: c.$color-black; }
+    &:disabled { opacity: 0.35; cursor: default; }
+    &.active   { background: c.$color-accent; color: c.$color-white; border-color: c.$color-accent; }
+  }
+}

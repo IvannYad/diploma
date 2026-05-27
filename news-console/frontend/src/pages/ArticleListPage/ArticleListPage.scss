@@ -1,0 +1,149 @@
+@use '../../assets/colors' as c;
+@use '../../assets/fonts' as f;
+@use '../../assets/sizes' as s;
+@use '../../assets/mixins' as mx;
+
+.page { width: s.$page-width; max-width: s.$page-max-width; min-width: s.$page-min-width; margin: 0 auto; padding: s.$page-padding; }
+
+.section-label {
+  display: flex; align-items: center; gap: 12px; margin-bottom: 28px;
+  h2     { @include mx.text-label(f.$fs-sm, .12em); color: c.$color-muted; }
+  .count { font-size: f.$fs-sm; color: c.$color-muted; padding: 2px 8px; border: 1px solid c.$color-border; border-radius: s.$radius-pill; }
+  &::after { content: ''; flex: 1; height: 1px; background: c.$color-border; }
+}
+
+.search-row {
+  display: flex; gap: 10px; margin-bottom: 28px; align-items: center; flex-wrap: wrap;
+  .search-bar { flex: 1; min-width: 200px; margin-bottom: 0; }
+}
+
+.search-bar   { position: relative; display: flex; align-items: center; margin-bottom: 28px; }
+.search-icon  { position: absolute; left: 14px; color: c.$color-muted; pointer-events: none; flex-shrink: 0; }
+.search-input {
+  width: 100%; height: s.$input-height; padding: 0 40px 0 42px;
+  border: 1px solid c.$color-border; border-radius: s.$radius-sm;
+  background: c.$color-white; font-family: f.$font-sans; font-size: f.$fs-body;
+  color: c.$color-ink; outline: none;
+  transition: border-color s.$trans-normal, box-shadow s.$trans-normal;
+  &::placeholder { color: c.$color-muted; }
+  &:focus { @include mx.focus-ring; }
+}
+.search-clear {
+  position: absolute; right: 12px;
+  background: none; border: none; font-size: 1.2rem; line-height: 1;
+  color: c.$color-muted; cursor: pointer; padding: 0 4px;
+  transition: color s.$trans-fast;
+  &:hover { color: c.$color-accent; }
+}
+.search-empty { padding: 60px 0; text-align: center; color: c.$color-muted; font-size: f.$fs-body; }
+
+.major-toggle {
+  display: inline-flex; align-items: center; gap: 7px;
+  cursor: pointer; user-select: none; flex-shrink: 0;
+  input[type='checkbox'] { display: none; }
+}
+.major-toggle-track {
+  position: relative; width: 34px; height: 18px;
+  background: c.$color-toggle-track; border-radius: s.$radius-pill;
+  transition: background s.$trans-slow; flex-shrink: 0;
+  .major-toggle input:checked ~ & { background: c.$color-accent; }
+}
+.major-toggle-thumb {
+  position: absolute; top: 2px; left: 2px; width: 14px; height: 14px;
+  background: c.$color-white; border-radius: 50%;
+  transition: transform s.$trans-slow;
+  box-shadow: 0 1px 3px c.$alpha-shadow-thumb;
+  .major-toggle input:checked ~ .major-toggle-track & { transform: translateX(16px); }
+}
+.major-toggle-label {
+  font-size: f.$fs-base-sm; font-family: f.$font-sans;
+  color: c.$color-muted; white-space: nowrap;
+}
+.major-toggle input:checked ~ .major-toggle-track + .major-toggle-label,
+.major-toggle:has(input:checked) .major-toggle-label { color: c.$color-accent; font-weight: 500; }
+
+.date-filter-pair {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.date-field {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: s.$input-height;
+  min-width: 7.25rem;
+  padding: 0 10px 0 12px;
+  border: 1px solid c.$color-border;
+  border-radius: s.$radius-sm;
+  background: c.$color-white;
+  cursor: pointer;
+  transition: border-color s.$trans-normal, box-shadow s.$trans-normal;
+
+  &.has-value { min-width: 11.5rem; }
+
+  &:focus-within { @include mx.focus-ring; }
+}
+
+.date-field-prefix {
+  flex-shrink: 0;
+  font-family: f.$font-sans;
+  font-size: 0.875rem;
+  color: c.$color-muted;
+  user-select: none;
+}
+
+.date-field-input {
+  flex: 1;
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: transparent;
+  font-family: f.$font-sans;
+  font-size: 0.875rem;
+  color: c.$color-ink;
+  outline: none;
+  cursor: pointer;
+  color-scheme: light;
+
+  &::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    opacity: 0.5;
+  }
+
+  &:not(.filled) {
+    width: 1.1rem;
+    flex: 0 0 1.1rem;
+    color: transparent;
+
+    &::-webkit-datetime-edit,
+    &::-webkit-datetime-edit-fields-wrapper,
+    &::-webkit-datetime-edit-text,
+    &::-webkit-datetime-edit-month-field,
+    &::-webkit-datetime-edit-day-field,
+    &::-webkit-datetime-edit-year-field {
+      opacity: 0;
+      width: 0;
+      padding: 0;
+    }
+  }
+
+  &:focus { outline: none; }
+}
+
+.date-field-clear {
+  flex-shrink: 0;
+  padding: 0 4px;
+  border: none;
+  background: none;
+  font-size: 1.1rem;
+  line-height: 1;
+  color: c.$color-muted;
+  cursor: pointer;
+  transition: color s.$trans-fast;
+
+  &:hover { color: c.$color-accent; }
+}

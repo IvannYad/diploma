@@ -1,0 +1,45 @@
+@use '../../assets/colors' as c;
+@use '../../assets/fonts' as f;
+@use '../../assets/sizes' as s;
+
+.detail-wrap {
+  max-width: 100%;
+  background: c.$color-white;
+  border: 1px solid c.$color-border;
+  border-radius: s.$radius-md;
+  padding: 32px 40px 48px;
+}
+.back-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: f.$fs-sm2; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+  color: c.$color-muted; cursor: pointer; border: none; background: none;
+  padding: 0; margin-bottom: 28px;
+  transition: color s.$trans-fast;
+  &:hover     { color: c.$color-accent; }
+  svg         { transition: transform s.$trans-fast; }
+  &:hover svg { transform: translateX(-3px); }
+}
+.detail-eyebrow {
+  font-size: f.$fs-sm; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+  color: c.$color-accent; margin-bottom: 12px;
+}
+.detail-title {
+  font-family: f.$font-serif; font-size: f.$fs-detail; font-weight: 800;
+  line-height: 1.2; color: c.$color-black; margin-bottom: 16px;
+}
+.detail-byline {
+  display: flex; align-items: center; gap: 16px;
+  padding: 14px 0;
+  border-top: 1px solid c.$color-border; border-bottom: 1px solid c.$color-border;
+  margin-bottom: 28px;
+  .time { font-size: f.$fs-base-sm; color: c.$color-muted; }
+  .code { font-size: f.$fs-small; color: c.$color-muted; font-family: monospace; }
+}
+.detail-body {
+  font-size: f.$fs-base; line-height: 1.75; color: c.$color-ink;
+  word-break: break-word; overflow-x: auto; margin-bottom: 40px;
+  table { border-collapse: collapse; width: 100%; margin: 20px 0; font-size: 0.88rem; }
+  td, th { border: 1px solid c.$color-border; padding: 8px 12px; vertical-align: top; text-align: left; }
+  th, tr:first-child td { background: c.$color-table-head-bg; font-weight: 600; }
+  tr:hover td { background: c.$color-card-hover-bg; }
+}

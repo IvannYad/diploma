@@ -1,0 +1,9 @@
+@use '../../assets/colors' as c;
+@use '../../assets/sizes' as s;
+
+mark.highlight {
+  background: c.$color-highlight;
+  color: inherit;
+  border-radius: s.$radius-xs;
+  padding: 0 1px;
+}

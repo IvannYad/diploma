@@ -1,0 +1,52 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+env/
+
+# Node
+node_modules/
+
+# Build output
+**/dist/
+
+# IDE
+.vscode/
+.idea/
+.vs/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env
+.env
+.env.local
+
+# Local config overrides
+**/appsettings.*.local.json
+
+# .Net
+**/bin/
+**/obj/
+*/release/
+
+.drive-cache/
+bin/
+obj/
+
+# Google auth credentials
+**/service_account.json
+**/token.json
+**/credentials.json
+
+# news-reader backend venv
+news-reader/backend/venv/
+
+*.log

@@ -1,0 +1,38 @@
+@use '../../../assets/colors' as c;
+@use '../../../assets/fonts' as f;
+@use '../../../assets/sizes' as s;
+
+.admin-tabs {
+  display: flex;
+  background: c.$color-white;
+  border-left: 1px solid c.$color-border;
+  border-right: 1px solid c.$color-border;
+  border-bottom: 2px solid c.$color-border;
+}
+
+.admin-tab {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 12px 20px;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  font-family: f.$font-sans;
+  font-size: f.$fs-sm2;
+  font-weight: 600;
+  letter-spacing: .04em;
+  color: c.$color-muted;
+  cursor: pointer;
+  transition: color s.$trans-fast, border-color s.$trans-fast;
+
+  &:hover {
+    color: c.$color-ink;
+  }
+
+  &--active {
+    color: c.$color-accent;
+    border-bottom-color: c.$color-accent;
+  }
+}

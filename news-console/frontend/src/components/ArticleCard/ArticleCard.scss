@@ -1,0 +1,63 @@
+@use '../../assets/colors' as c;
+@use '../../assets/fonts' as f;
+@use '../../assets/sizes' as s;
+@use '../../assets/mixins' as mx;
+
+.card {
+  background: c.$color-white;
+  border: 1px solid c.$color-border;
+  border-left: 3px solid transparent;
+  padding: 22px 24px;
+  margin-bottom: 2px;
+  cursor: pointer;
+  transition: border-left-color s.$trans-normal, background s.$trans-normal;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0 20px;
+  align-items: start;
+  &:first-of-type { border-radius: s.$radius-md s.$radius-md 0 0; }
+  &:last-of-type  { border-radius: 0 0 s.$radius-md s.$radius-md; margin-bottom: 0; }
+  &:only-of-type  { border-radius: s.$radius-md; }
+  &:hover         { border-left-color: c.$color-accent; background: c.$color-card-hover-bg; }
+  &:hover h2      { color: c.$color-accent2; }
+}
+.card-content { min-width: 0; }
+.card-category {
+  @include mx.text-label;
+  color: c.$color-accent;
+  margin-bottom: 6px;
+}
+.card h2 {
+  font-family: f.$font-serif;
+  font-size: f.$fs-card;
+  font-weight: 700;
+  line-height: 1.35;
+  color: c.$color-ink;
+  margin-bottom: 8px;
+}
+.card-excerpt {
+  font-size: f.$fs-read;
+  color: c.$color-mid;
+  line-height: 1.55;
+  @include mx.truncate-lines(2);
+}
+.card-meta {
+  font-size: f.$fs-meta;
+  color: c.$color-muted;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  .dot { width: 3px; height: 3px; border-radius: 50%; background: c.$color-muted; }
+}
+.card-index {
+  font-size: f.$fs-detail;
+  font-weight: 800;
+  color: c.$color-border;
+  font-family: f.$font-serif;
+  line-height: 1;
+  padding-top: 4px;
+  min-width: 36px;
+  text-align: right;
+  flex-shrink: 0;
+}

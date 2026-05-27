@@ -1,0 +1,205 @@
+@use '../../../assets/colors' as c;
+@use '../../../assets/fonts' as f;
+@use '../../../assets/sizes' as s;
+@use '../../../assets/mixins' as mx;
+
+.admin-server-form {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid c.$color-border;
+}
+
+.admin-server-form-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.admin-server-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  min-width: 200px;
+}
+
+.admin-server-field .admin-input {
+  flex: none;
+  width: 100%;
+  height: s.$input-height;
+  min-width: 0;
+}
+
+.admin-input {
+  height: s.$input-height;
+  padding: 0 12px;
+  background: c.$color-bg;
+  border: 1px solid c.$color-border;
+  border-radius: s.$radius-xs;
+  color: c.$color-ink;
+  font-family: f.$font-sans;
+  font-size: f.$fs-read;
+  outline: none;
+  box-sizing: border-box;
+  flex: 1;
+  min-width: 200px;
+  transition: border-color s.$trans-normal, box-shadow s.$trans-normal;
+
+  &::placeholder {
+    color: c.$color-input-placeholder;
+  }
+
+  &--error {
+    border-color: c.$color-accent;
+    background: rgba(c.$color-accent, .04);
+  }
+
+  &:focus {
+    @include mx.focus-ring;
+  }
+
+  &--short {
+    flex: 0 0 140px;
+    min-width: 100px;
+  }
+
+  &--inline {
+    height: 30px;
+    padding: 0 8px;
+  }
+}
+
+.admin-inline-err {
+  font-size: f.$fs-sm2;
+  color: c.$color-accent;
+
+  &--field {
+    margin-top: 2px;
+  }
+}
+
+.admin-table-wrap {
+  overflow-x: auto;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: f.$fs-sm2;
+
+  th {
+    font-family: f.$font-sans;
+    font-size: f.$fs-small;
+    font-weight: 700;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+    color: c.$color-mid;
+    text-align: left;
+    padding: 8px 12px;
+    border-bottom: 2px solid c.$color-border;
+    white-space: nowrap;
+  }
+
+  td {
+    padding: 10px 12px;
+    border-bottom: 1px solid c.$color-border;
+    color: c.$color-ink;
+    vertical-align: middle;
+  }
+
+  tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  tbody tr:hover td {
+    background: c.$color-bg;
+  }
+}
+
+.admin-cell--mono {
+  font-family: monospace;
+  font-size: .82rem;
+}
+
+.admin-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.admin-btn {
+  height: s.$btn-height;
+  padding: 0 14px;
+  background: c.$color-ink;
+  border: 1px solid c.$color-ink;
+  border-radius: s.$radius-xs;
+  color: c.$color-white;
+  font-family: f.$font-sans;
+  font-size: f.$fs-small;
+  font-weight: 700;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background s.$trans-fast, border-color s.$trans-fast, opacity s.$trans-fast;
+
+  &:disabled {
+    opacity: .45;
+    cursor: not-allowed;
+  }
+
+  &--sm {
+    height: 28px;
+    padding: 0 10px;
+    font-size: .68rem;
+  }
+
+  &--primary {
+    background: c.$color-accent;
+    border-color: c.$color-accent;
+  }
+
+  &--danger {
+    background: none;
+    border-color: rgba(c.$color-accent, .4);
+    color: c.$color-accent;
+
+    &:hover {
+      background: c.$color-accent;
+      color: c.$color-white;
+      border-color: c.$color-accent;
+    }
+  }
+
+  &--ok {
+    background: none;
+    border-color: rgba(#1a7a3c, .4);
+    color: #1a7a3c;
+
+    &:hover {
+      background: #1a7a3c;
+      color: c.$color-white;
+      border-color: #1a7a3c;
+    }
+  }
+
+  &:hover:not(:disabled):not(.admin-btn--danger):not(.admin-btn--ok) {
+    background: c.$color-accent;
+    border-color: c.$color-accent;
+  }
+}
+
+.admin-empty {
+  padding: 40px 0;
+  text-align: center;
+  color: c.$color-muted;
+  font-size: f.$fs-body;
+
+  &--error {
+    color: c.$color-accent;
+  }
+}

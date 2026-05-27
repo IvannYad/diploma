@@ -1,0 +1,219 @@
+@use '../../assets/colors' as c;
+@use '../../assets/fonts' as f;
+@use '../../assets/sizes' as s;
+@use '../../assets/mixins' as mx;
+
+.landing {
+  min-height: 100dvh;
+  background: c.$color-bg;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 24px;
+  position: relative; overflow: hidden;
+  &::before {
+    content: ''; position: absolute; inset: 0;
+    background-image:
+      repeating-linear-gradient(0deg,   c.$alpha-grid-line 0px, c.$alpha-grid-line 1px, transparent 1px, transparent 56px),
+      repeating-linear-gradient(90deg,  c.$alpha-grid-line 0px, c.$alpha-grid-line 1px, transparent 1px, transparent 56px);
+    pointer-events: none;
+  }
+  // The red top stripe is only for login/register (no header). Landing page uses the header instead.
+  &::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: c.$color-accent; }
+}
+
+// Logged-in landing shares the app header, so hide the login-only top stripe.
+.landing--with-header {
+  min-height: calc(100dvh - #{s.$topbar-height});
+  padding-top: 40px;
+  &::after { display: none; }
+}
+
+.landing-user-bar {
+  position: fixed; top: 0; right: 0; left: 0; z-index: s.$z-userbar;
+  display: flex; align-items: center; justify-content: flex-end;
+  gap: 6px; padding: 8px 20px;
+  background: c.$color-user-bar-bg; border-bottom: 1px solid c.$color-user-bar-border;
+  font-size: 13px; color: c.$color-user-bar-text;
+}
+
+.landing-inner {
+  position: relative; width: 100%; max-width: s.$landing-max-width;
+  display: flex; flex-direction: column; align-items: stretch; gap: 0;
+}
+.landing-hero  { text-align: center; margin-bottom: 36px; }
+.landing-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: f.$font-sans; font-size: f.$fs-label; font-weight: 700;
+  letter-spacing: .22em; text-transform: uppercase; color: c.$color-accent; margin-bottom: 20px;
+  &::before, &::after { content: ''; display: block; width: 24px; height: 1px; background: c.$color-accent; opacity: .5; }
+}
+.landing-title {
+  font-family: f.$font-serif; font-size: clamp(3.2rem, 10vw, 5.8rem);
+  font-weight: 800; line-height: 1; color: c.$color-black;
+  letter-spacing: -.03em; margin-bottom: 22px;
+  span { color: c.$color-accent; }
+}
+.landing-subtitle { font-size: 1.05rem; color: c.$color-ink; line-height: 1.7; max-width: 480px; margin: 0 auto; opacity: .75; }
+
+.landing-feats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 24px; }
+.landing-feat-card {
+  background: c.$color-white; border: 1px solid c.$color-border;
+  border-top: 3px solid c.$color-accent;
+  border-radius: 0 0 s.$radius-sm s.$radius-sm;
+  padding: 18px 16px 16px; display: flex; flex-direction: column; gap: 10px;
+}
+.landing-feat-num   { font-family: f.$font-serif; font-size: 1.6rem; font-weight: 800; color: c.$color-border; line-height: 1; letter-spacing: -.02em; }
+.landing-feat-title { @include mx.text-label(f.$fs-sm2, .06em); color: c.$color-ink; margin-bottom: 4px; }
+.landing-feat-desc  { font-size: f.$fs-base-sm; color: c.$color-mid; line-height: 1.45; }
+
+.landing-card {
+  background: c.$color-white; border: 1px solid c.$color-border;
+  border-radius: s.$radius-sm; box-shadow: 0 2px 16px c.$alpha-shadow-card;
+  padding: 28px 28px 24px; margin-bottom: 0;
+}
+.landing-card-header {
+  display: flex; align-items: center; gap: 14px;
+  margin-bottom: 22px; padding-bottom: 18px; border-bottom: 1px solid c.$color-border;
+}
+.landing-card-icon {
+  width: 38px; height: 38px;
+  background: c.$alpha-accent-icon-bg; border: 1px solid c.$alpha-accent-icon-bdr;
+  border-radius: s.$radius-lg; display: flex; align-items: center; justify-content: center;
+  color: c.$color-accent; flex-shrink: 0;
+}
+.landing-card-title    { font-family: f.$font-sans; font-size: f.$fs-ui; font-weight: 700; color: c.$color-ink; margin-bottom: 2px; }
+.landing-card-subtitle { font-size: f.$fs-sm2; color: c.$color-muted; }
+
+.landing-connect-label { display: block; @include mx.text-label(f.$fs-sm); color: c.$color-mid; margin-bottom: 8px; }
+.landing-connect-row   { display: flex; gap: 8px; }
+.landing-connect-input {
+  flex: 1; height: s.$input-height; padding: 0 14px;
+  background: c.$color-bg; border: 1px solid c.$color-border; border-radius: s.$radius-xs;
+  color: c.$color-ink; font-family: f.$font-sans; font-size: f.$fs-read; outline: none;
+  transition: border-color s.$trans-normal, box-shadow s.$trans-normal, background s.$trans-normal;
+  &::placeholder { color: c.$color-input-placeholder; }
+  &:focus        { background: c.$color-white; @include mx.focus-ring; }
+  &--error       { border-color: c.$color-accent !important; background: rgba(c.$color-accent, .04); }
+}
+.landing-connect-test-btn {
+  height: s.$input-height; padding: 0 20px;
+  background: c.$color-black; border: 1px solid c.$color-black; border-radius: s.$radius-xs;
+  color: c.$color-white; font-family: f.$font-sans; font-size: f.$fs-base-sm; font-weight: 700;
+  letter-spacing: .08em; text-transform: uppercase; cursor: pointer; flex-shrink: 0;
+  transition: background s.$trans-fast, border-color s.$trans-fast, opacity s.$trans-fast;
+  display: flex; align-items: center; justify-content: center; min-width: 72px;
+  &:hover:not(:disabled) { background: c.$color-ink; border-color: c.$color-ink; }
+  &:disabled { opacity: 0.35; cursor: default; }
+}
+.landing-spinner {
+  display: inline-block; width: 16px; height: 16px;
+  border: 2px solid c.$alpha-spinner-track; border-top-color: c.$color-white;
+  border-radius: 50%; animation: spin .7s linear infinite;
+}
+
+.landing-status {
+  display: flex; align-items: flex-start; gap: 9px;
+  margin-top: 14px; padding: 11px 14px; border-radius: s.$radius-sm;
+  font-size: 0.83rem; line-height: 1.55; font-weight: 500;
+  code { font-family: monospace; font-size: f.$fs-base-sm; background: c.$alpha-code-bg; padding: 1px 5px; border-radius: s.$radius-xs; }
+  &--error { background: c.$color-status-error-bg; border: 1px solid c.$color-status-error-bdr; color: c.$color-status-error-text; }
+  &--warn  { background: c.$color-status-warn-bg;  border: 1px solid c.$color-status-warn-bdr;  color: c.$color-status-warn-text; }
+  &--ok    { background: c.$color-status-ok-bg;    border: 1px solid c.$color-status-ok-bdr;    color: c.$color-status-ok-text; }
+  &--info  { background: c.$color-status-info-bg;  border: 1px solid c.$color-status-info-bdr;  color: c.$color-status-info-text; }
+}
+.landing-inline-link {
+  background: none; border: none; padding: 0; font: inherit;
+  font-weight: 600; color: inherit; text-decoration: underline; cursor: pointer;
+  &:hover { opacity: 0.75; }
+}
+.landing-status-icon { flex-shrink: 0; font-size: f.$fs-read; font-weight: 800; margin-top: 2px; }
+
+.landing-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  height: s.$btn-lg-height; padding: 0 28px;
+  background: c.$alpha-btn-base-bg; color: c.$color-accent;
+  font-family: f.$font-sans; font-size: 0.88rem; font-weight: 700;
+  letter-spacing: .05em; text-transform: uppercase;
+  border: 2px solid c.$color-accent; border-radius: s.$radius-xs; cursor: pointer;
+  transition: background s.$trans-normal, transform s.$trans-normal, box-shadow s.$trans-normal;
+  &:hover    { background: c.$alpha-btn-hover-bg; transform: translateY(-2px); box-shadow: 0 4px 16px c.$alpha-btn-shadow; }
+  &:active   { transform: translateY(0); }
+  &:disabled { opacity: 0.4; cursor: default; transform: none; box-shadow: none; }
+  &--secondary {
+    background: transparent; border: 2px solid c.$color-accent2; color: c.$color-accent2; box-shadow: none;
+    &:hover { background: c.$alpha-btn-sec-hov; box-shadow: 0 4px 16px c.$alpha-btn-sec-sh; transform: translateY(-2px); }
+  }
+}
+.login-hint { margin: 14px 0 0; font-size: 12px; color: c.$color-login-hint; text-align: center; }
+
+.auth-switch-link {
+  color: c.$color-accent;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color s.$trans-normal;
+  &:hover { border-bottom-color: c.$color-accent; }
+}
+
+.landing-upload-section { margin-top: 20px; display: flex; flex-direction: column; gap: 8px; }
+.landing-upload-format-row {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
+}
+.landing-format-link {
+  font-family: f.$font-sans; font-size: f.$fs-sm; font-weight: 600;
+  color: c.$color-accent; background: none; border: none; padding: 0; cursor: pointer;
+  text-decoration: underline; text-underline-offset: 3px;
+  &:hover { opacity: .85; }
+}
+.landing-upload-row     { display: flex; gap: 10px; align-items: center; }
+.landing-file-label {
+  flex: 1; display: inline-flex; align-items: center; gap: 8px;
+  height: s.$input-height; padding: 0 14px;
+  background: c.$color-bg; border: 1.5px solid c.$color-border; border-radius: s.$radius-md;
+  font-family: f.$font-sans; font-size: f.$fs-read; color: c.$color-muted;
+  cursor: pointer; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  transition: border-color s.$trans-normal;
+  &:hover { border-color: c.$color-login-hint; }
+}
+.landing-upload-progress {
+  position: relative; height: 36px; background: c.$color-upload-track-bg;
+  border-radius: s.$radius-md; overflow: hidden; display: flex; align-items: center;
+}
+.landing-upload-bar   { position: absolute; left: 0; top: 0; bottom: 0; background: c.$color-bar-success; transition: width s.$trans-slow ease; }
+.landing-upload-label { position: relative; padding: 0 12px; font-size: f.$fs-base-sm; font-family: f.$font-sans; color: c.$color-ink; z-index: 1; }
+
+.landing-modal-overlay {
+  position: fixed; inset: 0; z-index: s.$z-userbar + 10;
+  background: c.$alpha-shadow-card; display: flex; align-items: center; justify-content: center;
+  padding: 24px;
+}
+.landing-modal {
+  width: 100%; max-width: 520px; max-height: 85vh; overflow: auto;
+  background: c.$color-white; border: 1px solid c.$color-border;
+  border-radius: s.$radius-sm; box-shadow: 0 8px 32px c.$alpha-shadow-card;
+  padding: 24px;
+}
+.landing-modal-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 12px;
+}
+.landing-modal-title {
+  font-family: f.$font-serif; font-size: 1.35rem; font-weight: 700; margin: 0;
+}
+.landing-modal-close {
+  background: none; border: none; font-size: 1.1rem; cursor: pointer; color: c.$color-muted;
+}
+.landing-modal-text { font-size: f.$fs-read; color: c.$color-ink; line-height: 1.5; margin: 0 0 10px; }
+.landing-modal-fields {
+  margin: 0 0 14px; padding-left: 1.2rem; font-size: f.$fs-base-sm; color: c.$color-mid;
+  code { font-family: ui-monospace, monospace; color: c.$color-ink; }
+}
+.landing-modal-example {
+  margin: 0; padding: 12px; background: c.$color-bg; border: 1px solid c.$color-border;
+  border-radius: s.$radius-md; font-size: f.$fs-sm; overflow-x: auto; white-space: pre;
+}
+
+.landing-footer {
+  position: relative; margin-top: 40px; padding: 18px 0;
+  font-size: f.$fs-sm; color: c.$color-muted; letter-spacing: .06em;
+  text-align: center; width: 100%; border-top: 1px solid c.$color-border;
+}

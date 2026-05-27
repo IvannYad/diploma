@@ -1,0 +1,35 @@
+@use 'colors' as c;
+@use 'fonts' as f;
+@use 'sizes' as s;
+
+@mixin flex-row($gap: 0) {
+  display: flex;
+  align-items: center;
+  @if $gap != 0 { gap: $gap; }
+}
+
+@mixin flex-col($gap: 0) {
+  display: flex;
+  flex-direction: column;
+  @if $gap != 0 { gap: $gap; }
+}
+
+@mixin text-label($size: f.$fs-label, $spacing: .1em) {
+  font-size: $size;
+  font-weight: 600;
+  letter-spacing: $spacing;
+  text-transform: uppercase;
+}
+
+@mixin truncate-lines($n) {
+  display: -webkit-box;
+  -webkit-line-clamp: $n;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@mixin focus-ring {
+  outline: none;
+  border-color: c.$color-accent2;
+  box-shadow: 0 0 0 3px c.$alpha-accent-focus;
+}

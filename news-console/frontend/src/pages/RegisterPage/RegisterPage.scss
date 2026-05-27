@@ -1,0 +1,67 @@
+@use '../../assets/colors' as c;
+@use '../../assets/fonts' as f;
+@use '../../assets/sizes' as s;
+
+.register-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.register-field {
+  display: flex;
+  flex-direction: column;
+  .landing-connect-input { flex: none; width: 100%; box-sizing: border-box; height: s.$input-height; }
+}
+
+.register-required { color: c.$color-accent; margin-left: 2px; }
+.register-optional { color: c.$color-muted; font-weight: 400; text-transform: none; letter-spacing: 0; font-size: f.$fs-small; margin-left: 4px; }
+
+.auth-switch-link {
+  color: c.$color-accent;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color s.$trans-normal;
+  &:hover { border-bottom-color: c.$color-accent; }
+}
+
+.register-apikey-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: c.$color-bg;
+  border: 1px solid c.$color-border;
+  border-radius: s.$radius-sm;
+  padding: 12px 14px;
+}
+.register-apikey-value {
+  flex: 1;
+  font-family: monospace;
+  font-size: 0.78rem;
+  color: c.$color-ink;
+  word-break: break-all;
+  line-height: 1.5;
+}
+.register-copy-btn {
+  flex-shrink: 0;
+  height: 32px;
+  padding: 0 14px;
+  background: c.$color-black;
+  border: none;
+  border-radius: s.$radius-xs;
+  color: c.$color-white;
+  font-family: f.$font-sans;
+  font-size: f.$fs-sm2;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background s.$trans-fast;
+  &:hover { background: c.$color-ink; }
+}
+
+.register-icon--ok {
+  background: rgba(52, 198, 98, 0.1) !important;
+  border-color: rgba(52, 198, 98, 0.3) !important;
+  color: c.$color-status-ok-text !important;
+}

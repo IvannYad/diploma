@@ -1,0 +1,48 @@
+@use '../../assets/colors' as c;
+@use '../../assets/fonts' as f;
+@use '../../assets/sizes' as s;
+
+.processing-page { padding-top: 28px; }
+.processing-card {
+  background: c.$color-white; border: 1px solid c.$color-border;
+  border-left: 3px solid c.$color-accent2; border-radius: s.$radius-md;
+  padding: 24px; box-shadow: 0 2px 8px c.$alpha-shadow-card-sm;
+}
+.processing-title    { font-family: f.$font-serif; font-size: f.$fs-h2; line-height: 1.2; margin-bottom: 8px; }
+.processing-subtitle { color: c.$color-mid; font-size: f.$fs-body; margin-bottom: 20px; }
+.processing-progress-wrap {
+  border: 1px solid c.$color-border; border-radius: s.$radius-md;
+  background: c.$color-progress-wrap-bg; padding: 14px; margin-bottom: 14px;
+}
+.processing-progress-top,
+.processing-progress-bottom { display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+.processing-progress-top    { font-size: 0.86rem; color: c.$color-ink; margin-bottom: 8px; }
+.processing-progress-bottom { margin-top: 8px; font-size: f.$fs-sm2; color: c.$color-muted; }
+.processing-bar      { width: 100%; height: s.$bar-height; background: c.$color-progress-bg; border-radius: s.$radius-pill; overflow: hidden; }
+.processing-bar-fill { height: 100%; background: linear-gradient(90deg, c.$color-accent2, c.$color-bar-blue); transition: width 0.35s ease; }
+
+@keyframes bar-shimmer      { 0% { background-position: 200% center; } 100% { background-position: -200% center; } }
+@keyframes indeterminate-slide { 0% { transform: translateX(-120%); } 100% { transform: translateX(500%); } }
+@keyframes segment-pulse    { 0%, 100% { opacity: 0.45; } 50% { opacity: 0.85; } }
+
+.processing-bar--running .processing-bar-fill {
+  background: linear-gradient(90deg, c.$color-accent2 0%, c.$color-bar-blue 35%, c.$color-bar-blue-light 50%, c.$color-bar-blue 65%, c.$color-accent2 100%);
+  background-size: 300% 100%;
+  animation: bar-shimmer 6s ease-in-out infinite;
+}
+.processing-bar--running.processing-bar--indeterminate {
+  position: relative; overflow: hidden;
+  &::after {
+    content: ''; position: absolute; top: 0; left: 0; height: 100%; width: 30%;
+    background: linear-gradient(90deg, transparent, c.$alpha-indeterminate, transparent);
+    animation: indeterminate-slide 1.6s ease-in-out infinite;
+  }
+}
+.processing-bar--stages { display: flex; gap: 3px; background: transparent; overflow: visible; }
+.processing-bar-segment {
+  flex: 1; height: s.$bar-height; border-radius: s.$radius-pill;
+  background: c.$color-progress-bg; transition: background 0.3s ease;
+  &.done   { background: linear-gradient(90deg, c.$color-accent2, c.$color-bar-blue); }
+  &.active { background: linear-gradient(90deg, c.$color-accent2, c.$color-bar-blue); opacity: 0.25; }
+}
+.processing-actions { margin-top: 14px; display: flex; gap: 10px; flex-wrap: wrap; }

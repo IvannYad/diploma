@@ -1,0 +1,13 @@
+version: "3.9"
+
+services:
+  news-pipeline:
+    image: news-pipeline:latest
+    container_name: news-pipeline
+    restart: "no"
+    environment:
+      MONGO_URI: ${MONGO_URI}
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
+      PROCESS_ID: ${PROCESS_ID:-manual-run}
+      PROCESS_TYPE: ${PROCESS_TYPE:-IntellectualProcessing}
+      BACKEND_CALLBACK_ENDPOINT: ${BACKEND_CALLBACK_ENDPOINT:-http://host.docker.internal:5000/api/webhooks/processing/completed}

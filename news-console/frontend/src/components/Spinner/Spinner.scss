@@ -1,0 +1,22 @@
+@use '../../assets/colors' as c;
+@use '../../assets/fonts' as f;
+@use '../../assets/sizes' as s;
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80px 20px;
+  color: c.$color-muted;
+  gap: 16px;
+}
+.spinner {
+  width: s.$spinner-size;
+  height: s.$spinner-size;
+  border: 3px solid c.$color-border;
+  border-top-color: c.$color-accent;
+  border-radius: 50%;
+  animation: spin .7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.error { padding: 40px 20px; color: c.$color-accent; font-size: f.$fs-body; }

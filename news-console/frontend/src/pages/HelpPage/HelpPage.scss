@@ -1,0 +1,60 @@
+@use '../../assets/colors' as c;
+@use '../../assets/fonts' as f;
+@use '../../assets/sizes' as s;
+
+.help-wrap {
+  max-width: 760px;
+  margin: 0 auto;
+  background: c.$color-white;
+  border: 1px solid c.$color-border;
+  border-radius: s.$radius-md;
+  padding: 36px 40px 48px;
+}
+.help-title {
+  font-family: f.$font-serif;
+  font-size: f.$fs-detail;
+  font-weight: 800;
+  color: c.$color-black;
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+.help-intro {
+  font-size: f.$fs-read;
+  color: c.$color-mid;
+  line-height: 1.65;
+  margin-bottom: 32px;
+}
+.help-section {
+  margin-bottom: 28px;
+  scroll-margin-top: 80px;
+  &:last-child { margin-bottom: 0; }
+}
+.help-section-title {
+  font-size: f.$fs-ui;
+  font-weight: 700;
+  color: c.$color-ink;
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid c.$color-border;
+}
+.help-section p,
+.help-section li {
+  font-size: f.$fs-read;
+  color: c.$color-mid;
+  line-height: 1.65;
+}
+.help-section ul {
+  margin: 8px 0 0;
+  padding-left: 1.25rem;
+}
+.help-section li + li { margin-top: 6px; }
+.help-note {
+  margin-top: 10px;
+  padding: 10px 14px;
+  border-radius: s.$radius-sm;
+  background: c.$color-status-info-bg;
+  border: 1px solid c.$color-status-info-bdr;
+  color: c.$color-status-info-text;
+  font-size: f.$fs-base-sm;
+  line-height: 1.55;
+}

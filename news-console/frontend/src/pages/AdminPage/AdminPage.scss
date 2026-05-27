@@ -1,0 +1,27 @@
+@use '../../assets/colors' as c;
+@use '../../assets/sizes' as s;
+
+.admin-page {
+  min-height: calc(100dvh - #{s.$topbar-height});
+  background: c.$color-bg;
+  display: flex;
+  justify-content: center;
+  padding: 40px 24px 64px;
+}
+
+.admin-inner {
+  width: 100%;
+  max-width: 920px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.admin-content {
+  background: c.$color-white;
+  border: 1px solid c.$color-border;
+  border-top: none;
+  border-radius: 0 0 s.$radius-sm s.$radius-sm;
+  padding: 24px;
+  min-height: 200px;
+}
