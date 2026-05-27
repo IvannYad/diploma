@@ -205,9 +205,15 @@ export default function ProcessingProgressPage() {
   const stageLabel = progressTotalStages > 0
     ? `Stage ${progressStageIndex} of ${progressTotalStages}`
     : progressStage;
-  const newsLabel = progressTotal > 0
-    ? `Processed ${progressProcessed} of ${progressTotal} news`
-    : `Processed ${progressProcessed} news`;
+
+  const isSubclusterStage =
+    progressStageIndex === 4
+    || (progressStage?.toLowerCase().includes('chart') ?? false);
+  const unit = isSubclusterStage ? 'subclusters' : 'news';
+
+  const itemLabel = progressTotal > 0
+    ? `Processed ${progressProcessed} of ${progressTotal} ${unit}`
+    : `Processed ${progressProcessed} ${unit}`;
 
   return (
     <div className="page processing-page">
@@ -239,7 +245,7 @@ export default function ProcessingProgressPage() {
 
         <div className="processing-progress-wrap" style={{ marginTop: '16px' }}>
           <div className="processing-progress-top">
-            <span>{newsLabel}</span>
+            <span>{itemLabel}</span>
             <strong>
               {progressTotal > 0 ? `${newsPercent}%` : '—'}
             </strong>
